@@ -1,0 +1,3 @@
+Logo asset: client/public/sayinn-logo.png
+Method: built-in image generation/editing tool, transparent-background edit.
+Prompt: Remove ONLY the white background, including white negative-space holes between the letters, to real transparent alpha. Keep the exact red/coral and orange ribbon shape, cream Y lettering and two cream stripes, original geometry, proportions and colors unchanged. Do not redesign, add a white tile, shadow, text, or any background. Output transparent PNG for use as existing website logo.
