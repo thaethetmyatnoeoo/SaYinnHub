@@ -1,3 +1,4 @@
+import { UserGuide } from "../UserGuide";
 import { t as tr, LanguageSwitcher } from "../../i18n";
 import React from "react";
 import { Brand, Button } from "../../components/ui";
@@ -15,6 +16,17 @@ export function Landing({ go }) {
         <Brand />
         <nav aria-label={tr("Public navigation")}>
           <LanguageSwitcher />
+          <a
+            href="#landing-guide"
+            onClick={(e) => {
+              e.preventDefault();
+              document
+                .getElementById("landing-guide")
+                ?.scrollIntoView({ block: "start" });
+            }}
+          >
+            {tr("User Guide")}
+          </a>
           <a href="#Login" onClick={() => go("Login")}>
             {tr("Login")}
           </a>
@@ -85,6 +97,9 @@ export function Landing({ go }) {
             <p>{tr(copy)}</p>
           </article>
         ))}
+      </section>
+      <section id="landing-guide" className="landing-guide">
+        <UserGuide publicView go={go} />
       </section>
       <footer>{tr("SaYinn Hub · Built for local retail.")}</footer>
     </main>

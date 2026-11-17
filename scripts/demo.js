@@ -7,7 +7,7 @@ const run = spawn(
   [
     "node_modules/concurrently/dist/bin/index.js",
     "-k",
-    "node --watch server/index.js",
+    "node --env-file-if-exists=.env --watch server/index.js",
     "vite --host 127.0.0.1",
   ],
   {

@@ -1,3 +1,4 @@
+import { ShopAbout } from "./features/ShopAbout";
 import { usePreference } from "./components/DisplayControls";
 import { CategoryFields } from "./features/products/CategoryFields";
 import { UserGuide } from "./features/UserGuide";
@@ -265,6 +266,7 @@ export default function App() {
         <p>{tr("Getting your workspace ready…")}</p>
       </div>
     );
+  if (page === "Home") return <Landing go={go} />;
   if (!data)
     return ["Login", "Register"].includes(page) ? (
       <Auth
@@ -620,22 +622,13 @@ export default function App() {
               )}
             </div>
           </div>
-          {data.demo && (
-            <div className="demo-bar">
-              <span>
-                <span className="status-dot" />
-                {tr("Sample workspace ")}
-                <b>·</b>
-                {tr(
-                  " Explore freely. All records stay on this device’s server.",
-                )}
-              </span>
-              <button onClick={() => M("demo")}>
-                {tr("About this shop ")}
-                <ArrowUpRight size={12} />
-              </button>
-            </div>
-          )}
+          <div className="shop-about-entry">
+            <button onClick={() => M("demo")}>
+              <Store size={16} />
+              {tr("About this shop")}
+              <ArrowUpRight size={14} />
+            </button>
+          </div>
           {active !== "Overview" && (
             <FeatureSpotlight page={tr(active)} {...props} />
           )}
@@ -841,7 +834,7 @@ export default function App() {
                     closeShift: "Wrap up your shift",
                     notifications: "A little heads-up",
                     store: "Your shops",
-                    demo: "A space to explore",
+                    demo: "About this shop",
                   }[modal],
                 )
           }
@@ -990,34 +983,13 @@ export default function App() {
             />
           )}
           {modal === "demo" && (
-            <div className="modal-copy">
-              <div className="store-detail">
-                <span className="store-avatar large">
-                  <Store />
-                </span>
-                <h3>{data.settings.storeName}</h3>
-                <p>{tr("Shop workspace · MMK · Asia/Yangon")}</p>
-              </div>
-              <p>
-                {data.demo
-                  ? tr(
-                      "This shop contains clearly marked sample sales and products. Try the counter, add a customer, or receive stock. Payments are recorded, and do not move real money.",
-                    )
-                  : tr(
-                      "Your products, customers, sales, and stock share one persistent database.",
-                    )}
-              </p>
-              <Button
-                kind="primary full"
-                onClick={() => {
-                  M(null);
-                  go("Point of sale");
-                }}
-              >
-                {tr("Head to the counter ")}
-                <ArrowRight size={16} />
-              </Button>
-            </div>
+            <ShopAbout
+              data={data}
+              navigate={(page) => {
+                M(null);
+                go(page);
+              }}
+            />
           )}
           {typeof modal === "object" &&
             modal.content({ close: () => M(null), formAction, working })}

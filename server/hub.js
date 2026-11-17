@@ -19,6 +19,7 @@ import { createApp, passwordHash } from "./app.js";
 import { database } from "./database.js";
 import { configureHttp } from "./http.js";
 import { registration, shopCodeSchema } from "./features/registration.js";
+import { emailVerification } from "./features/email-verification.js";
 
 const hash = (value) => createHash("sha256").update(value).digest("hex");
 const now = () => new Date().toISOString();
@@ -44,7 +45,11 @@ const shopDetails = z.object({
   storeName: z.string().trim().min(1).max(150),
 });
 
-export async function createHub(db, { demo = false, openShop } = {}) {
+export async function createHub(
+  db,
+  { demo = false, openShop, sendEmail } = {},
+) {
+  const verification = await emailVerification(db, sendEmail);
   for (const sql of [
     "CREATE TABLE IF NOT EXISTS shops (code TEXT PRIMARY KEY, ready INTEGER NOT NULL DEFAULT 0, created TEXT NOT NULL)",
     "CREATE TABLE IF NOT EXISTS accounts (id TEXT PRIMARY KEY, home_code TEXT NOT NULL, home_user TEXT NOT NULL, name TEXT NOT NULL, username TEXT NOT NULL, password TEXT NOT NULL, email TEXT NOT NULL, phone TEXT NOT NULL, image TEXT NOT NULL DEFAULT '', UNIQUE(home_code,home_user), UNIQUE(home_code,username))",
@@ -238,8 +243,22 @@ export async function createHub(db, { demo = false, openShop } = {}) {
     standardHeaders: "draft-8",
     legacyHeaders: false,
   });
+  const emailLimit = rateLimit({
+    windowMs: 3600000,
+    limit: 10,
+    standardHeaders: "draft-8",
+    legacyHeaders: false,
+  });
+  app.post("/api/v1/auth/email-code", emailLimit, async (req, res) => {
+    res.json(await verification.request(req.body.email));
+  });
   app.post("/api/v1/auth/register", limit, async (req, res) => {
     const d = registration.parse(req.body);
+    await verification.consume(
+      d.email,
+      req.body.challengeId,
+      req.body.verificationCode,
+    );
     if (d.role === "OWNER") await provision(d);
     else {
       const tenant = await resolve(d.shopCode);
