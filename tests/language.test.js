@@ -9,6 +9,15 @@ import {
 } from "../client/src/i18n/core.js";
 import my from "../client/src/i18n/my.json" with { type: "json" };
 import { parsers } from "prettier/plugins/babel";
+test("all guide steps have English and Myanmar translations", () => {
+  const en = JSON.parse(readFileSync("client/src/i18n/en.json", "utf8"));
+  const keys = Object.keys(en).filter((k) => k.startsWith("guide."));
+  assert.equal(keys.length, 31);
+  for (const key of keys) {
+    assert.ok(en[key].length > 0);
+    assert.match(my[key], /[\u1000-\u109f]/);
+  }
+});
 test("language switching notifies the app, interpolates values and leaves unknown data intact", () => {
   let changed = 0;
   const stop = subscribe(() => changed++);

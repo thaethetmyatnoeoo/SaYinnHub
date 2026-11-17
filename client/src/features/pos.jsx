@@ -41,6 +41,9 @@ export function POS({
     [busy, B] = useState(false),
     [payment, PM] = useState(false),
     [tenders, PT] = useState([{ method: "Cash", amount: "" }]);
+  const enabledMethods = data.paymentMethods.filter(
+    (m) => m.enabled && (owner || m.cashier),
+  );
   const checkoutKey = useRef(crypto.randomUUID());
   const lines = cart
     .map((l) => ({ ...data.products.find((p) => p.id === l.id), qty: l.qty }))
@@ -229,6 +232,7 @@ export function POS({
                 <GroupCard
                   key={g.id}
                   group={g}
+                  actionLabel="Add to cart"
                   onOpen={() =>
                     modal({
                       title: g.name,
@@ -489,7 +493,9 @@ export function POS({
                   modal("openShift");
                   return;
                 }
-                PT([{ method: "Cash", amount: String(total) }]);
+                if (!enabledMethods.length)
+                  return notify("No payment methods available.");
+                PT([{ method: enabledMethods[0].id, amount: String(total) }]);
                 PM(true);
               }}
             >
@@ -560,16 +566,9 @@ export function POS({
                     checkoutKey.current = crypto.randomUUID();
                   }}
                 >
-                  {[
-                    "Cash",
-                    "KBZPay",
-                    "Wave Money",
-                    "AYA Pay",
-                    "Card",
-                    "Bank transfer",
-                  ].map((m) => (
-                    <option key={m} value={m}>
-                      {tr(m)}
+                  {enabledMethods.map((m) => (
+                    <option key={m.id} value={m.id}>
+                      {m.builtin ? tr(m.name) : m.name}
                     </option>
                   ))}
                 </select>
@@ -608,7 +607,10 @@ export function POS({
               PT((ts) => [
                 ...ts,
                 {
-                  method: "KBZPay",
+                  method: (
+                    enabledMethods.find((m) => m.id !== "Cash") ||
+                    enabledMethods[0]
+                  )?.id,
                   amount: Math.max(
                     0,
                     total - ts.reduce((s, t) => s + Number(t.amount), 0),
@@ -644,6 +646,10 @@ export function POS({
             kind="primary full"
             disabled={
               busy ||
+              !enabledMethods.length ||
+              tenders.some(
+                (t) => !enabledMethods.some((m) => m.id === t.method),
+              ) ||
               tenders.some(
                 (t) =>
                   !Number.isSafeInteger(Number(t.amount)) ||

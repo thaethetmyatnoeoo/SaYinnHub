@@ -62,11 +62,11 @@ body {
   box-shadow: var(--glass-shadow);
 }
 .brand {
-  font-size: 23px;
+  font-size: calc(23px * var(--text-scale, 1));
   gap: 8px;
 }
 .brand small {
-  font-size: 5.3px;
+  font-size: calc(5.3px * var(--text-scale, 1));
   letter-spacing: 0.6px;
 }
 .topbar {
@@ -143,12 +143,12 @@ body {
   color: #431c16;
 }
 .hero-copy p {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   max-width: 340px;
 }
 .hero-kicker {
   color: #431c16;
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
   letter-spacing: 1.4px;
 }
 .hero-primary,
@@ -242,7 +242,7 @@ body {
   color: #431c16b8;
 }
 .stat-card > strong {
-  font-size: 29px;
+  font-size: calc(29px * var(--text-scale, 1));
 }
 .stat-icon {
   background: linear-gradient(135deg, #fff7ed, #fdba74);
@@ -275,7 +275,7 @@ body {
   box-shadow: inset 0 2px 10px #fff7ed99;
 }
 .product-card strong {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
 }
 .product-card .product-image::before {
   border-color: #fff7ed99;
@@ -313,7 +313,7 @@ th,
   color: #431c16;
 }
 .panel-heading h2 {
-  font-size: 16px;
+  font-size: calc(16px * var(--text-scale, 1));
 }
 .demo-banner {
   background: #fff7ed66;
@@ -375,7 +375,7 @@ th,
     padding-left: 28px;
   }
   .hero-copy h2 {
-    font-size: 42px;
+    font-size: calc(42px * var(--text-scale, 1));
   }
   .scene-world {
     scale: 0.98;
@@ -398,7 +398,7 @@ th,
     margin-left: 216px;
   }
   .hero-copy h2 {
-    font-size: 36px;
+    font-size: calc(36px * var(--text-scale, 1));
   }
   .hero-copy {
     padding: 28px 24px;
@@ -433,11 +433,11 @@ th,
     padding: 30px 24px 12px;
   }
   .hero-copy h2 {
-    font-size: 39px;
+    font-size: calc(39px * var(--text-scale, 1));
     letter-spacing: -1.8px;
   }
   .hero-copy p {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .spatial-hero::after {
     top: auto;
@@ -457,13 +457,13 @@ th,
     border-radius: 20px;
   }
   .stat-card > strong {
-    font-size: 25px;
+    font-size: calc(25px * var(--text-scale, 1));
   }
   .product-card {
     padding: 8px;
   }
   .product-card strong {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .app-shell::after {
     width: 280px;
@@ -504,7 +504,7 @@ th,
   min-height: 38px;
   margin: 0 12px 8px;
   color: #431c16;
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .chart-selection strong {
   white-space: nowrap;
@@ -521,53 +521,53 @@ th,
 
 /* Readable workspace typography, independent of decorative product lettering. */
 body {
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
 }
 .nav-item {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
   min-height: 44px;
 }
 .nav-label,
 .sidebar-label {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .store-switch strong {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .store-switch small,
 .store-switch span:last-child {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .topbar {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .breadcrumb,
 .topbar-date,
 .motion-toggle {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .page-heading p,
 .page-header p,
 .panel-heading p {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   line-height: 1.6;
 }
 .eyebrow,
 .hero-kicker {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .hero-copy p {
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
 }
 .hero-primary,
 .hero-secondary,
 .hero-live {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .btn,
 .period-switch button,
 .category-tabs button {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .btn {
   min-height: 40px;
@@ -576,84 +576,84 @@ body {
 .stat-card > span,
 .stat-card p,
 .stat-card small {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .stat-card > strong {
-  font-size: 30px;
+  font-size: calc(30px * var(--text-scale, 1));
 }
 .panel-heading h2,
 .cart-heading h2 {
-  font-size: 18px;
+  font-size: calc(18px * var(--text-scale, 1));
 }
 th {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 td,
 td button {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 td > small,
 td > span > small,
 td > div > small {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .badge {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .best-product > span:not(.product-image) strong {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .best-product > span:not(.product-image) small {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .attention-item strong {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .attention-item small,
 .attention-item p {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .product-card > strong {
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
   line-height: 1.4;
 }
 .product-card > small,
 .product-category,
 .product-price small {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .product-price {
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
 }
 .search-box input,
 .field input,
 .field select,
 .field textarea,
 .customer-select select {
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
 }
 .field > span,
 .cart-total-row,
 .cart-line strong,
 .cart-line small {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .chart-selection {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
   min-height: 42px;
 }
 .chart-axis {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .demo-banner {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 @media (max-width: 620px) {
   .hero-copy p {
-    font-size: 14px;
+    font-size: calc(14px * var(--text-scale, 1));
   }
   .hero-live {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
     flex-wrap: wrap;
   }
   .hero-actions {
@@ -661,28 +661,28 @@ td > div > small {
   }
   .hero-primary,
   .hero-secondary {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .stat-card > strong {
-    font-size: 25px;
+    font-size: calc(25px * var(--text-scale, 1));
   }
   .stat-card {
     padding: 18px 15px;
   }
   .product-card > strong {
-    font-size: 14px;
+    font-size: calc(14px * var(--text-scale, 1));
   }
   .product-card > small {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .product-price {
-    font-size: 14px;
+    font-size: calc(14px * var(--text-scale, 1));
     flex-wrap: wrap;
     gap: 6px;
   }
   .chart-selection {
     flex-wrap: wrap;
-    font-size: 13px;
+    font-size: calc(13px * var(--text-scale, 1));
   }
   .sales-chart svg {
     min-height: 190px;
@@ -691,7 +691,7 @@ td > div > small {
   .field input,
   .field select,
   .customer-select select {
-    font-size: 16px;
+    font-size: calc(16px * var(--text-scale, 1));
   }
 }
 .report-stats .panel > span,
@@ -700,7 +700,7 @@ td > div > small {
 .payment-mix > small,
 .tab-group button,
 .attention-item > span > small {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .sales-chart svg:focus {
   outline: 2px solid #f97360;

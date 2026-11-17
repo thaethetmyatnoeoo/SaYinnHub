@@ -185,14 +185,11 @@ export function Sales({ data, search, receipt, modal, act, notify, owner }) {
             }}
             aria-label={tr("Filter by payment")}
           >
-            <option>{tr("All payments")}</option>
+            <option value="All payments">{tr("All payments")}</option>
             {[
-              "Cash",
-              "KBZPay",
-              "Wave Money",
-              "AYA Pay",
-              "Card",
-              "Bank transfer",
+              ...new Set(
+                data.sales.flatMap((s) => s.payments.map((p) => p.method)),
+              ),
             ].map((m) => (
               <option key={m} value={m}>
                 {tr(m)}

@@ -155,14 +155,14 @@ body {
   margin-bottom: 22px;
 }
 .shop-hub-intro h3 {
-  font-size: 23px;
+  font-size: calc(23px * var(--text-scale, 1));
   letter-spacing: -0.7px;
   margin: 0 0 8px;
 }
 .shop-hub-intro p,
 .shop-hub-form p,
 .shop-account-note {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
   line-height: 1.7;
   color: var(--muted);
 }
@@ -195,7 +195,7 @@ body {
 }
 .shop-hub-form h3 {
   margin: 0 0 18px;
-  font-size: 18px;
+  font-size: calc(18px * var(--text-scale, 1));
 }
 .shop-hub-form p {
   margin-bottom: 18px;
@@ -236,12 +236,12 @@ body {
 }
 .shop-choice strong {
   display: block;
-  font-size: 17px;
+  font-size: calc(17px * var(--text-scale, 1));
   overflow-wrap: anywhere;
 }
 .shop-choice small {
   display: block;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   line-height: 1.8;
   color: var(--muted);
 }
@@ -252,7 +252,7 @@ body {
   width: 48px;
   height: 48px;
   flex: none;
-  font-size: 21px;
+  font-size: calc(21px * var(--text-scale, 1));
   font-weight: 700;
 }
 .shop-choice:hover:not(:disabled) {
@@ -354,7 +354,7 @@ html[data-motion="off"] .store-switch {
     gap: 14px;
   }
   .shop-hub-intro h3 {
-    font-size: 20px;
+    font-size: calc(20px * var(--text-scale, 1));
   }
   .shop-choice {
     padding: 16px;

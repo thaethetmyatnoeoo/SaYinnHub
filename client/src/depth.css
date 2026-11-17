@@ -32,7 +32,7 @@
   max-width: 570px;
 }
 .feature-guide-copy p {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
   line-height: 1.75;
   max-width: 580px;
   color: var(--muted);
@@ -42,7 +42,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 700;
   letter-spacing: 0.03em;
 }
@@ -60,7 +60,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
   font-weight: 700;
   padding: 0 0 5px;
   border-bottom: 1px solid #f9736060;
@@ -92,7 +92,7 @@
   padding: 9px 14px;
   margin: 0 0 18px;
   color: var(--ink);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .compact-spotlight {
   min-height: 145px;
@@ -106,7 +106,7 @@
   scale: 0.64;
 }
 .compact-spotlight h2 {
-  font-size: 22px;
+  font-size: calc(22px * var(--text-scale, 1));
   margin-block: 8px;
 }
 .compact-spotlight p {
@@ -241,7 +241,7 @@
 }
 .store-sign {
   font-family: Manrope, sans-serif;
-  font-size: 16px;
+  font-size: calc(16px * var(--text-scale, 1));
   font-weight: 800;
   text-align: center;
   padding: 12px 0 8px;
@@ -399,7 +399,7 @@
 }
 .art-spark {
   position: absolute;
-  font-size: 22px;
+  font-size: calc(22px * var(--text-scale, 1));
   color: #f97360;
   transform: translateZ(70px);
 }
@@ -410,7 +410,7 @@
 .sparkle-b {
   right: -5px;
   bottom: 45px;
-  font-size: 30px;
+  font-size: calc(30px * var(--text-scale, 1));
   color: #fdba74;
 }
 .terminal-base {
@@ -462,7 +462,7 @@
   width: 45px;
 }
 .terminal-display span {
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
   letter-spacing: 3px;
   font-weight: 800;
   margin-top: 3px;
@@ -483,7 +483,7 @@
   gap: 1px;
 }
 .payment-card span {
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
   letter-spacing: 3px;
 }
 .terminal-ticket {
@@ -532,7 +532,7 @@
   background: #fff7ed80;
 }
 .stock-box span {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   font-weight: 800;
   margin-top: 3px;
 }
@@ -961,7 +961,7 @@ html[data-motion="off"] .mini-world {
     scale: 1.15;
   }
   .storefront-hero .hero-copy h2 {
-    font-size: 34px;
+    font-size: calc(34px * var(--text-scale, 1));
   }
 }
 @media (max-width: 700px) {
@@ -974,10 +974,10 @@ html[data-motion="off"] .mini-world {
     scale: 0.6;
   }
   .feature-guide-copy h2 {
-    font-size: 21px;
+    font-size: calc(21px * var(--text-scale, 1));
   }
   .feature-guide-copy p {
-    font-size: 13px;
+    font-size: calc(13px * var(--text-scale, 1));
   }
   .dimensional-art {
     height: 150px;
@@ -1035,10 +1035,10 @@ html[data-motion="off"] .mini-world {
     width: 140px;
   }
   .compact-spotlight h2 {
-    font-size: 19px;
+    font-size: calc(19px * var(--text-scale, 1));
   }
   .compact-spotlight .feature-guide-copy p {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
 }
 @media print {
@@ -1169,7 +1169,7 @@ html[data-motion="off"] .mini-world {
     max-width: none;
   }
   .compact-spotlight .feature-guide-copy p {
-    font-size: 13px;
+    font-size: calc(13px * var(--text-scale, 1));
   }
 }
 @media (max-width: 480px) {

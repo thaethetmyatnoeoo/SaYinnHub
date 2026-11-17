@@ -76,6 +76,12 @@ test("first run creates a real owner without sample credentials", async () => {
       (await client.get("/api/v1/workspace")).body.products.length,
       0,
     );
+    assert.deepEqual(
+      (await client.get("/api/v1/workspace")).body.paymentMethods.map(
+        (m) => m.name,
+      ),
+      ["Cash", "Bank transfer", "Mobile Payment", "Card"],
+    );
   } finally {
     await fresh.close();
   }

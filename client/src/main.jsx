@@ -25,3 +25,4 @@ import "./features.css";
 
 import "./theme.css";
 import "./depth.css";
+import "./corrections.css";

@@ -1,3 +1,9 @@
+import {
+  defaultMethods,
+  paymentMethods,
+  validatePayments,
+  registerPayments,
+} from "./features/payments.js";
 import { generatedSku } from "./features/products.js";
 import {
   passwordPolicy,
@@ -112,6 +118,7 @@ export async function createApp(
             currency: "MMK",
             taxBps: 0,
             receiptFooter: "Thank you for shopping with us.",
+            ...(!sample ? { paymentMethods: defaultMethods() } : {}),
           }),
         ],
       );
@@ -413,6 +420,7 @@ export async function createApp(
       ? next()
       : res.status(403).json({ error: { message: "Owner access required." } });
   registerProducts(app, db, { owner, audit });
+  registerPayments(app, db, { owner, audit });
   registerWorkspaceFeatures(app, db, {
     owner,
     audit,
@@ -456,6 +464,9 @@ export async function createApp(
       categories: await readCategories(db),
       productTemplates: await templates(db),
       settings: await settings(db),
+      paymentMethods: paymentMethods(await settings(db)).filter(
+        (m) => req.user.role === "OWNER" || (m.enabled && m.cashier),
+      ),
       products,
       sales,
       customers: await db.query("SELECT * FROM customers ORDER BY name"),
@@ -779,14 +790,7 @@ export async function createApp(
         payments: z
           .array(
             z.object({
-              method: z.enum([
-                "Cash",
-                "KBZPay",
-                "Wave Money",
-                "AYA Pay",
-                "Card",
-                "Bank transfer",
-              ]),
+              method: text,
               amount: integer,
               reference: z.string().max(150).optional(),
             }),
@@ -883,7 +887,9 @@ export async function createApp(
       }
       const subtotal = lines.reduce((s, l) => s + l.price * l.qty, 0);
       if (d.discount > subtotal) fail("Discount exceeds subtotal.");
+      await tx.query("UPDATE settings SET value=value WHERE id=1");
       const config = await settings(tx);
+      validatePayments(d.payments, config, req.user.role);
       const tax = Number(
         (BigInt(subtotal - d.discount) * BigInt(config.taxBps) + 5000n) /
           10000n,

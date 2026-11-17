@@ -1,3 +1,7 @@
+import { FontControl, usePreference } from "./components/DisplayControls";
+import { CategoryFields } from "./features/products/CategoryFields";
+import { UserGuide } from "./features/UserGuide";
+import { Tags, BookOpen, PanelLeftOpen } from "lucide-react";
 import { t as tr, useLanguage, LanguageSwitcher } from "./i18n";
 import { imageUrl, printReceipt } from "./api";
 import { MotionToggle, useSpatialMotion } from "./components/spatial";
@@ -63,11 +67,13 @@ const navigation = [
   ["Point of sale", ShoppingBag],
   ["Sales", ReceiptText],
   ["Products", Package],
+  ["Categories", Tags],
   ["Inventory", Boxes],
   ["Reports", ChartNoAxesCombined],
   ["Team", Users],
   ["Activity", History],
   ["Settings", Settings],
+  ["User Guide", BookOpen],
 ];
 import {
   Button,
@@ -95,6 +101,12 @@ import { ProductForm } from "./features/products/ProductForm";
 
 export default function App() {
   useLanguage();
+  const [sidebarState, setSidebarState] = usePreference(
+    "sayinn-sidebar",
+    "expanded",
+  );
+  const collapsed = sidebarState === "collapsed";
+  const [catalogCategory, setCatalogCategory] = useState("All products");
   const [motion, toggleMotion] = useSpatialMotion();
   const [status, S] = useState(null),
     [data, D] = useState(null),
@@ -153,6 +165,7 @@ export default function App() {
     return () => window.removeEventListener("hashchange", handler);
   }, []);
   function go(p) {
+    if (p !== "Products") setCatalogCategory("All products");
     P(p);
     location.hash = p;
     Q("");
@@ -277,7 +290,13 @@ export default function App() {
     allowed = owner
       ? navigation
       : navigation.filter(([p]) =>
-          ["Point of sale", "Sales", "Products", "Inventory"].includes(p),
+          [
+            "Point of sale",
+            "Sales",
+            "Products",
+            "Inventory",
+            "User Guide",
+          ].includes(p),
         );
   const active =
     ["Profile", "Customers"].includes(page) || allowed.some(([p]) => p === page)
@@ -287,8 +306,28 @@ export default function App() {
         : "Point of sale";
   const props = { data, go, search, notify, act, modal: M, owner, receipt: R };
   return (
-    <div className="app-shell" data-motion={motion ? "on" : "off"}>
-      <aside className={mobile ? "sidebar mobile-open" : "sidebar"}>
+    <div
+      className={`app-shell ${collapsed ? "sidebar-collapsed" : "sidebar-expanded"}`}
+      data-motion={motion ? "on" : "off"}
+    >
+      {mobile && (
+        <button
+          className="sidebar-scrim"
+          aria-label={tr("Close menu")}
+          onClick={() => SM(false)}
+        />
+      )}
+      <aside
+        id="workspace-sidebar"
+        className={mobile ? "sidebar mobile-open" : "sidebar"}
+      >
+        <button
+          className="icon-btn sidebar-close-mobile"
+          aria-label={tr("Close menu")}
+          onClick={() => SM(false)}
+        >
+          <X size={20} />
+        </button>
         <Brand />
         <button
           className="store-switch"
@@ -323,11 +362,13 @@ export default function App() {
               <button
                 className={active === name ? "nav-item active" : "nav-item"}
                 aria-current={active === name ? "page" : undefined}
-                key={tr(name)}
+                key={name}
+                title={tr(name)}
+                aria-label={tr(name)}
                 onClick={() => go(name)}
               >
                 <Icon size={18} />
-                {tr(name)}
+                <span className="nav-label">{tr(name)}</span>
                 {name === "Inventory" && !!low.length && (
                   <span className="nav-count">{low.length}</span>
                 )}
@@ -347,11 +388,13 @@ export default function App() {
                   <button
                     className={active === name ? "nav-item active" : "nav-item"}
                     aria-current={active === name ? "page" : undefined}
-                    key={tr(name)}
+                    key={name}
+                    title={tr(name)}
+                    aria-label={tr(name)}
                     onClick={() => go(name)}
                   >
                     <Icon size={18} />
-                    {tr(name)}
+                    <span className="nav-label">{tr(name)}</span>
                   </button>
                 ))}
             </>
@@ -417,11 +460,30 @@ export default function App() {
       </aside>
       <div className="main-shell">
         <header className="topbar">
+          <button
+            className="icon-btn sidebar-toggle"
+            aria-controls="workspace-sidebar"
+            aria-expanded={!collapsed}
+            aria-label={tr(collapsed ? "Expand sidebar" : "Collapse sidebar")}
+            title={tr(collapsed ? "Expand sidebar" : "Collapse sidebar")}
+            onClick={() =>
+              setSidebarState(collapsed ? "expanded" : "collapsed")
+            }
+          >
+            {collapsed ? (
+              <PanelLeftOpen size={22} />
+            ) : (
+              <PanelLeftClose size={22} />
+            )}
+          </button>
+          <FontControl />
           <LanguageSwitcher />
           <div className="breadcrumb">
             <button
               className="icon-btn mobile-menu"
-              aria-label={tr("Open menu")}
+              aria-label={tr(mobile ? "Close menu" : "Open menu")}
+              aria-expanded={mobile}
+              aria-controls="workspace-sidebar"
               onClick={() => SM(!mobile)}
             >
               <Menu size={20} />
@@ -507,6 +569,8 @@ export default function App() {
                     Reports: "A clearer picture of how your business is doing.",
                     Team: "Good people make a great shop.",
                     Activity: "A little clarity on everything that happens.",
+                    Categories: "Organize your products by category.",
+                    "User Guide": "Step-by-step help for your everyday work.",
                     Settings:
                       "The little details that make this workspace yours.",
                   }[active],
@@ -582,7 +646,21 @@ export default function App() {
             <POS {...props} cart={cart} setCart={C} />
           )}
           {active === "Sales" && <Sales {...props} />}
-          {active === "Products" && <Catalog {...props} />}
+          {active === "Products" && (
+            <Catalog {...props} initialCategory={catalogCategory} />
+          )}
+          {active === "Categories" && owner && (
+            <section className="panel account-panel">
+              <CategoryFields
+                {...props}
+                onSelect={(name) => {
+                  setCatalogCategory(name);
+                  go("Products");
+                }}
+              />
+            </section>
+          )}
+          {active === "User Guide" && <UserGuide owner={owner} go={go} />}
           {active === "Inventory" && <Inventory {...props} />}
           {active === "Customers" && <Customers {...props} />}
           {active === "Reports" && <Reports {...props} />}

@@ -90,7 +90,12 @@ export function ProductBanner({ variants }) {
     </div>
   );
 }
-export function GroupCard({ group, onOpen, extra }) {
+export function GroupCard({
+  actionLabel = "View variants",
+  group,
+  onOpen,
+  extra,
+}) {
   const prices = group.variants.map((v) => v.price),
     low = Math.min(...prices),
     high = Math.max(...prices);
@@ -119,7 +124,7 @@ export function GroupCard({ group, onOpen, extra }) {
         {high !== low ? " – " + money(high) : ""}
       </span>
       {extra}
-      <Button onClick={onOpen}>{tr("View variants")}</Button>
+      <Button onClick={onOpen}>{tr(actionLabel)}</Button>
     </article>
   );
 }

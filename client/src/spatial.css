@@ -52,7 +52,7 @@ a:focus-visible {
   padding: 0 34px;
 }
 .brand {
-  font-size: 25px;
+  font-size: calc(25px * var(--text-scale, 1));
   gap: 10px;
   color: var(--ink);
   letter-spacing: -1.4px;
@@ -62,7 +62,7 @@ a:focus-visible {
   font-weight: 500;
 }
 .brand small {
-  font-size: 6.2px;
+  font-size: calc(6.2px * var(--text-scale, 1));
   letter-spacing: 0.9px;
   color: var(--muted);
   padding-top: 7px;
@@ -99,11 +99,11 @@ a:focus-visible {
   gap: 9px;
 }
 .store-switch strong {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   color: var(--ink);
 }
 .store-switch small {
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
   color: var(--muted);
 }
 .store-avatar {
@@ -120,13 +120,13 @@ a:focus-visible {
 }
 .nav-caption {
   color: var(--muted);
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
   letter-spacing: 1.6px;
   margin-left: 14px;
   margin-bottom: 13px;
 }
 .nav-item {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   gap: 12px;
   padding: 12px 14px;
   min-height: 43px;
@@ -173,7 +173,7 @@ a:focus-visible {
 .nav-count {
   background: var(--coral);
   color: var(--ink);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   border-radius: 6px;
   width: 21px;
   height: 21px;
@@ -181,7 +181,7 @@ a:focus-visible {
 .nav-shortcut {
   border-color: var(--border);
   color: var(--muted);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   border-radius: 5px;
   background: #fff7edaa;
 }
@@ -199,11 +199,11 @@ a:focus-visible {
   gap: 9px;
 }
 .shift-mini > span:nth-child(2) {
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   color: var(--ink);
 }
 .shift-mini small {
-  font-size: 8px;
+  font-size: calc(8px * var(--text-scale, 1));
   color: var(--muted);
 }
 .status-dot {
@@ -220,11 +220,11 @@ a:focus-visible {
   padding-bottom: 24px;
 }
 .profile strong {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   color: var(--ink);
 }
 .profile small {
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   color: var(--muted);
 }
 .avatar {
@@ -239,7 +239,7 @@ a:focus-visible {
 .breadcrumb,
 .local-date {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .breadcrumb strong,
 .breadcrumb svg {
@@ -272,7 +272,7 @@ button.icon-btn:hover {
   border-radius: 20px;
   padding: 7px 11px;
   color: var(--ink);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   box-shadow: inset 0 1px #ffffff80;
 }
 .motion-toggle:hover {
@@ -295,18 +295,18 @@ button.icon-btn:hover {
 }
 .page-heading h1 {
   color: var(--ink);
-  font-size: 28px;
+  font-size: calc(28px * var(--text-scale, 1));
   letter-spacing: -1.25px;
   font-weight: 750;
 }
 .page-heading p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   line-height: 1.6;
 }
 .page-heading .eyebrow {
   color: var(--muted);
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
   letter-spacing: 1.7px;
 }
 .heading-dot {
@@ -317,7 +317,7 @@ button.icon-btn:hover {
   stroke-width: 1.6;
 }
 .heading-actions .btn {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   padding: 11px 14px;
   border-radius: 10px;
 }
@@ -371,7 +371,7 @@ button.icon-btn:hover {
 }
 .text-btn {
   color: var(--ink);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .text-btn:hover {
   color: var(--ink);
@@ -386,13 +386,13 @@ button.icon-btn:hover {
   background: #fff7ed70;
   border-color: #431c160b;
   border-radius: 9px;
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   padding: 8px 12px;
   margin-bottom: 18px;
 }
 .demo-bar button {
   color: var(--muted);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .demo-bar .status-dot {
   background: var(--coral);
@@ -441,7 +441,7 @@ button.icon-btn:hover {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 8px;
+  font-size: calc(8px * var(--text-scale, 1));
   font-weight: 650;
   letter-spacing: 1.6px;
   color: var(--muted);
@@ -454,7 +454,7 @@ button.icon-btn:hover {
   box-shadow: 0 0 0 4px #f9736020;
 }
 .hero-copy h2 {
-  font-size: 40px;
+  font-size: calc(40px * var(--text-scale, 1));
   line-height: 1.12;
   letter-spacing: -1.8px;
   font-weight: 750;
@@ -465,7 +465,7 @@ button.icon-btn:hover {
   color: #b55142;
 }
 .hero-copy p {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   line-height: 1.85;
   color: var(--muted);
 }
@@ -483,7 +483,7 @@ button.icon-btn:hover {
   border: 1px solid #431c1609;
   border-radius: 10px;
   color: var(--ink);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   font-weight: 650;
   padding: 12px 16px;
   box-shadow:
@@ -507,7 +507,7 @@ button.icon-btn:hover {
   gap: 8px;
   background: none;
   padding: 8px 0;
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   font-weight: 600;
   color: var(--ink);
 }
@@ -522,7 +522,7 @@ button.icon-btn:hover {
   align-items: center;
   gap: 6px;
   margin-top: 23px;
-  font-size: 8px;
+  font-size: calc(8px * var(--text-scale, 1));
   color: var(--muted);
 }
 .hero-live > b {
@@ -703,7 +703,7 @@ button.icon-btn:hover {
 .bag-front > strong {
   color: var(--ink);
   font:
-    750 18px Manrope,
+    750 calc(18px * var(--text-scale, 1)) Manrope,
     sans-serif;
   letter-spacing: -0.7px;
   margin-top: 13px;
@@ -713,7 +713,7 @@ button.icon-btn:hover {
   font-weight: 500;
 }
 .bag-front > small {
-  font-size: 5px;
+  font-size: calc(5px * var(--text-scale, 1));
   letter-spacing: 1.6px;
   color: var(--ink);
   margin-top: 5px;
@@ -810,13 +810,13 @@ button.icon-btn:hover {
   box-shadow: 0 3px 6px #431c1610;
 }
 .floating-receipt > span:nth-child(2) {
-  font-size: 5px;
+  font-size: calc(5px * var(--text-scale, 1));
   letter-spacing: 0.8px;
   color: var(--muted);
   margin-top: 11px;
 }
 .floating-receipt > strong {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   color: var(--ink);
   letter-spacing: -0.35px;
   margin-top: 4px;
@@ -841,7 +841,7 @@ button.icon-btn:hover {
   margin-top: auto;
   padding-top: 9px;
   border-top: 1px dashed #431c1620;
-  font-size: 6px;
+  font-size: calc(6px * var(--text-scale, 1));
   color: var(--muted);
 }
 .floating-inventory {
@@ -872,13 +872,13 @@ button.icon-btn:hover {
 }
 .floating-inventory strong {
   display: block;
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   color: var(--ink);
 }
 .floating-inventory small {
   display: block;
   margin-top: 4px;
-  font-size: 7px;
+  font-size: calc(7px * var(--text-scale, 1));
   color: var(--muted);
 }
 .floating-inventory > i {
@@ -903,7 +903,7 @@ button.icon-btn:hover {
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 8px;
+  font-size: calc(8px * var(--text-scale, 1));
   color: var(--muted);
 }
 .scene-controls > div {
@@ -928,7 +928,7 @@ button.icon-btn:hover {
   background: var(--pink);
 }
 .scene-controls > small {
-  font-size: 6px;
+  font-size: calc(6px * var(--text-scale, 1));
   letter-spacing: 1px;
   color: var(--muted);
 }
@@ -938,7 +938,7 @@ button.icon-btn:hover {
 }
 .period-label {
   color: var(--muted);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .tab-group {
   background: var(--peach);
@@ -948,7 +948,7 @@ button.icon-btn:hover {
 }
 .tab-group button {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   padding: 7px 13px;
   border-radius: 7px;
 }
@@ -1005,7 +1005,7 @@ button.icon-btn:hover {
   opacity: 1;
 }
 .stat-top {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   color: var(--muted);
 }
 .stat-icon {
@@ -1046,21 +1046,21 @@ button.icon-btn:hover {
     4px 7px 9px -5px #431c1630;
 }
 .stat-card > strong {
-  font-size: 28px;
+  font-size: calc(28px * var(--text-scale, 1));
   letter-spacing: -1.2px;
   font-weight: 750;
   color: var(--ink);
   margin: 15px 0 15px;
 }
 .stat-foot {
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
   color: var(--muted);
 }
 .trend.up,
 .trend.down {
   background: var(--pink);
   color: var(--ink);
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
 }
 .tiny-line {
   background: #431c1630;
@@ -1070,7 +1070,7 @@ button.icon-btn:hover {
   color: var(--ink);
   border-color: #431c1608;
   border-radius: 6px;
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .panel {
   border-radius: 16px;
@@ -1084,13 +1084,13 @@ button.icon-btn:hover {
   padding: 23px 23px 17px;
 }
 .panel-heading h2 {
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
   color: var(--ink);
   font-weight: 700;
   letter-spacing: -0.4px;
 }
 .panel-heading p {
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   color: var(--muted);
   margin-top: 7px;
 }
@@ -1101,21 +1101,21 @@ button.icon-btn:hover {
 }
 .chart-legend {
   color: var(--ink);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .chart-legend i {
   background: var(--coral);
 }
 .chart-legend small {
   color: var(--muted);
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
 }
 .sales-chart {
   padding: 5px 23px 10px;
 }
 .chart-axis {
   fill: var(--muted);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .grid-line {
   stroke: #431c1611;
@@ -1136,11 +1136,11 @@ button.icon-btn:hover {
   padding: 15px 0;
 }
 .attention-row strong {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   color: var(--ink);
 }
 .attention-row small {
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
   color: var(--muted);
 }
 .attention-row > svg {
@@ -1168,7 +1168,7 @@ button.icon-btn:hover {
 .attention-number {
   background: var(--peach);
   color: var(--ink);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .attention-note {
   background: linear-gradient(120deg, var(--cream), var(--pink));
@@ -1177,16 +1177,16 @@ button.icon-btn:hover {
   padding: 16px 13px;
 }
 .attention-note > span:first-child {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   color: var(--ink);
 }
 .attention-note p {
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
   color: var(--muted);
 }
 .note-flower {
   color: var(--coral);
-  font-size: 53px;
+  font-size: calc(53px * var(--text-scale, 1));
   opacity: 0.7;
   transition: transform 0.6s;
 }
@@ -1197,20 +1197,20 @@ th {
   background: #fff7ed80;
   color: var(--muted);
   border-color: var(--border);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   padding: 13px 20px;
 }
 td {
   color: var(--ink);
   border-color: #431c1609;
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 td strong {
   color: var(--ink);
 }
 td small {
   color: var(--muted);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .sales-table tbody tr {
   transition: background 0.2s;
@@ -1224,28 +1224,28 @@ td.amount {
   color: var(--ink);
 }
 .receipt-link {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .customer-name {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .recent-panel .receipt-link {
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .recent-panel .customer-name {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .recent-panel td.amount {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .recent-panel td small {
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
 }
 .recent-panel th {
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .recent-panel .badge {
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
 }
 .badge.green,
 .badge.amber,
@@ -1273,25 +1273,25 @@ td.amount {
   padding: 14px 0;
 }
 .best-product strong {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   color: var(--ink);
 }
 .best-product > span:not(.product-image) small {
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
   color: var(--muted);
 }
 .best-product .sold-count strong {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .rank {
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   color: var(--muted);
 }
 .best-link {
   border-color: var(--border);
   background: #fff7ed4d;
   color: var(--ink);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   padding: 15px;
 }
 .best-link:hover {
@@ -1312,28 +1312,28 @@ td.amount {
 }
 .daily-icon {
   color: var(--coral);
-  font-size: 32px;
+  font-size: calc(32px * var(--text-scale, 1));
   filter: drop-shadow(0 3px 0 #431c1615);
 }
 .daily-note strong {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   color: var(--ink);
 }
 .daily-note p {
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   color: var(--muted);
 }
 .daily-note .btn {
   background: var(--card);
   border-color: #431c1610;
   color: var(--ink);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .workspace-footer,
 .workspace-footer > span:last-child,
 .footer-brand {
   color: var(--muted);
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
 }
 .workspace-footer .status-dot {
   background: var(--coral);
@@ -1771,54 +1771,54 @@ td.amount {
   transform: translateY(-1px) scale(0.98);
 }
 .product-category {
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
   color: var(--muted);
   letter-spacing: 1.2px;
   margin-inline: 5px;
 }
 .product-card > strong {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   color: var(--ink);
   margin-inline: 5px;
 }
 .product-card > small {
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   color: var(--muted);
   margin-inline: 5px;
 }
 .product-price {
   color: var(--ink);
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
   margin: 15px 5px 0;
 }
 .product-price > small {
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
   color: var(--muted);
 }
 .products-grid .product-photo {
   height: 172px;
 }
 .products-grid .product-card > strong {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   color: var(--ink);
 }
 .products-grid .product-card > small {
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   color: var(--muted);
 }
 .products-grid .product-price {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   color: var(--ink);
 }
 .products-grid .product-price > small {
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
   color: var(--muted);
 }
 .catalog-card .product-photo {
   height: 220px;
 }
 .catalog-card .badge {
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
 }
 .add-product {
   width: 31px;
@@ -1845,7 +1845,7 @@ td.amount {
   background: #fff7edd9;
   border: 1px solid #ffffffb0;
   color: var(--ink);
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
   border-radius: 6px;
   padding: 5px 7px;
   top: 10px;
@@ -1874,7 +1874,7 @@ td.amount {
 .search-box input {
   height: 41px;
   color: var(--ink);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .search-box input::placeholder {
   color: var(--muted);
@@ -1889,7 +1889,7 @@ td.amount {
   margin: 20px 0;
 }
 .category-tabs button {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   color: var(--muted);
   padding: 9px 15px;
   border-radius: 9px;
@@ -1907,10 +1907,10 @@ td.amount {
   border-color: #431c1612;
   color: var(--ink);
   background: #fff7ed50;
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
 }
 .pos-search-row > .btn {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   border-radius: 11px;
 }
 .pos-layout {
@@ -1933,14 +1933,14 @@ td.amount {
 }
 .cart-heading h2 {
   color: var(--ink);
-  font-size: 16px;
+  font-size: calc(16px * var(--text-scale, 1));
 }
 .cart-heading .eyebrow {
   color: var(--muted);
-  font-size: 8px;
+  font-size: calc(8px * var(--text-scale, 1));
 }
 .cart-heading .count {
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   background: var(--pink);
 }
 .cart-heading > button {
@@ -1955,7 +1955,7 @@ td.amount {
 }
 .customer-select select {
   color: var(--ink);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   background: none;
   border: 0;
 }
@@ -1968,15 +1968,15 @@ td.amount {
 }
 .cart-line strong {
   color: var(--ink);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .cart-line small {
   color: var(--muted);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .cart-line > b {
   color: var(--ink);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .quantity {
   border-color: var(--border);
@@ -2000,45 +2000,45 @@ td.amount {
 }
 .cart-total-row {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .discount-link {
   color: var(--ink);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .grand-total {
   border-color: #431c1630;
   color: var(--ink);
 }
 .grand-total > strong {
-  font-size: 26px;
+  font-size: calc(26px * var(--text-scale, 1));
   color: var(--ink);
 }
 .grand-total > span small {
   color: var(--muted);
 }
 .checkout-btn {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   min-height: 46px;
 }
 .hold-btn {
   background: var(--cream);
   border-color: #431c1610;
   color: var(--ink);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   margin-top: 13px;
 }
 .cart-safe {
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
   color: var(--muted);
 }
 .empty h3 {
   color: var(--ink);
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
 }
 .empty p {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .empty > span,
 .cart-lines .empty > span {
@@ -2056,17 +2056,17 @@ td.amount {
   height: 55px;
 }
 .cart-lines .empty h3 {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .cart-lines .empty p {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 select {
   background: var(--card);
   border-color: var(--border);
   color: var(--ink);
   border-radius: 9px;
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   height: 41px;
 }
 kbd {
@@ -2078,7 +2078,7 @@ kbd {
 .field > span,
 .modal .field > span {
   color: var(--ink);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .field input,
 .field select,
@@ -2088,7 +2088,7 @@ kbd {
   border-color: #431c1620;
   border-radius: 9px;
   min-height: 44px;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .field input:focus,
 .field select:focus {
@@ -2129,7 +2129,7 @@ input::placeholder {
   backdrop-filter: blur(9px);
 }
 .modal-head h2 {
-  font-size: 21px;
+  font-size: calc(21px * var(--text-scale, 1));
   color: var(--ink);
   font-weight: 700;
   letter-spacing: -0.8px;
@@ -2137,10 +2137,10 @@ input::placeholder {
 .modal-head p,
 .modal-copy {
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .modal .btn {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .checkbox-label {
   color: var(--ink);
@@ -2150,7 +2150,7 @@ input::placeholder {
   background: var(--cream);
   border-color: #431c1614;
   border-radius: 10px;
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .payment-total {
   color: var(--muted);
@@ -2168,7 +2168,7 @@ input::placeholder {
 }
 .add-tender {
   color: var(--ink);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .toast {
   background: var(--card);
@@ -2209,12 +2209,12 @@ input::placeholder {
 .inventory-stats section > span,
 .report-stats section > span {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .inventory-stats section > strong,
 .report-stats section > strong {
   color: var(--ink);
-  font-size: 28px;
+  font-size: calc(28px * var(--text-scale, 1));
 }
 .inventory-stats section > strong small,
 .report-stats section > small {
@@ -2232,7 +2232,7 @@ input::placeholder {
 .product-cell strong,
 .person strong {
   color: var(--ink);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .mono {
   color: var(--muted);
@@ -2256,7 +2256,7 @@ input::placeholder {
 .payment-method > div:first-child,
 .payment-method strong {
   color: var(--ink);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .method-dot,
 .dot-1,
@@ -2281,7 +2281,7 @@ input::placeholder {
 }
 .payment-mix > small {
   color: var(--muted);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .timeline-item {
   border-color: var(--border);
@@ -2294,17 +2294,17 @@ input::placeholder {
 }
 .timeline-item strong {
   color: var(--ink);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .timeline-item p,
 .timeline-item > small {
   color: var(--muted);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .pagination {
   border-color: var(--border);
   color: var(--muted);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .settings-panel .panel-heading > svg {
   color: var(--ink);
@@ -2380,13 +2380,13 @@ input::placeholder {
 }
 .auth-copy h1 {
   color: var(--ink);
-  font-size: 58px;
+  font-size: calc(58px * var(--text-scale, 1));
   letter-spacing: -3px;
   font-weight: 750;
 }
 .auth-copy > p {
   color: var(--muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .auth-copy .eyebrow,
 .auth-form .eyebrow {
@@ -2397,14 +2397,14 @@ input::placeholder {
 }
 .auth-form > div > p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .auth-form .field > span {
   color: var(--ink);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .auth-form .field input {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .auth-form > div > .btn {
   color: var(--ink);
@@ -2553,20 +2553,20 @@ html[data-motion="off"] .modal {
     padding: 42px;
   }
   .hero-copy h2 {
-    font-size: 46px;
+    font-size: calc(46px * var(--text-scale, 1));
   }
   .hero-copy p {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .hero-kicker {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
   .hero-primary {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
     padding: 14px 18px;
   }
   .hero-live {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
   .spatial-scene {
     width: 430px;
@@ -2577,13 +2577,13 @@ html[data-motion="off"] .modal {
     transform-origin: center 65%;
   }
   .hero-secondary {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
   }
   .products-grid .product-photo {
     height: 195px;
   }
   .stat-card > strong {
-    font-size: 31px;
+    font-size: calc(31px * var(--text-scale, 1));
   }
 }
 @media (max-width: 1250px) {
@@ -2601,7 +2601,7 @@ html[data-motion="off"] .modal {
     padding-inline: 25px;
   }
   .brand {
-    font-size: 22px;
+    font-size: calc(22px * var(--text-scale, 1));
     gap: 8px;
   }
   .brand-mark {
@@ -2609,17 +2609,17 @@ html[data-motion="off"] .modal {
     height: 43px;
   }
   .brand small {
-    font-size: 5.5px;
+    font-size: calc(5.5px * var(--text-scale, 1));
     letter-spacing: 0.75px;
   }
   .store-switch strong {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .store-switch small {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .nav-item {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
     padding-inline: 12px;
   }
   .nav-item.active:before {
@@ -2629,29 +2629,29 @@ html[data-motion="off"] .modal {
     padding: 30px 0 28px 26px;
   }
   .hero-copy h2 {
-    font-size: 35px;
+    font-size: calc(35px * var(--text-scale, 1));
   }
   .hero-kicker {
-    font-size: 7px;
+    font-size: calc(7px * var(--text-scale, 1));
     letter-spacing: 1.3px;
   }
   .hero-actions {
     gap: 13px;
   }
   .hero-primary {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
     padding: 11px 12px;
     gap: 9px;
   }
   .hero-secondary {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
     gap: 5px;
   }
   .hero-copy p {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .hero-live {
-    font-size: 7px;
+    font-size: calc(7px * var(--text-scale, 1));
     gap: 4px;
     flex-wrap: wrap;
   }
@@ -2675,19 +2675,19 @@ html[data-motion="off"] .modal {
     right: 8px;
   }
   .scene-controls > span {
-    font-size: 7px;
+    font-size: calc(7px * var(--text-scale, 1));
   }
   .scene-controls > small {
-    font-size: 5px;
+    font-size: calc(5px * var(--text-scale, 1));
   }
   .stat-card {
     padding: 18px;
   }
   .stat-card > strong {
-    font-size: 24px;
+    font-size: calc(24px * var(--text-scale, 1));
   }
   .stat-top {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .stat-icon {
     height: 32px;
@@ -2695,7 +2695,7 @@ html[data-motion="off"] .modal {
     border-radius: 10px;
   }
   .stat-foot {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .dashboard-middle,
   .dashboard-bottom {
@@ -2716,7 +2716,7 @@ html[data-motion="off"] .modal {
     padding: 18px;
   }
   .checkout-btn {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .catalog-card .product-photo {
     height: 190px;
@@ -2725,23 +2725,23 @@ html[data-motion="off"] .modal {
     padding: 21px 20px 16px;
   }
   .panel-heading h2 {
-    font-size: 14px;
+    font-size: calc(14px * var(--text-scale, 1));
   }
   .motion-toggle {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
     padding: 7px 9px;
   }
   .topbar-right {
     gap: 13px;
   }
   .local-date {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .daily-note strong {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
   }
   .daily-note p {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
 }
 @media (max-width: 1020px) {
@@ -2750,13 +2750,13 @@ html[data-motion="off"] .modal {
     gap: 15px;
   }
   .stat-card > strong {
-    font-size: 29px;
+    font-size: calc(29px * var(--text-scale, 1));
   }
   .stat-top {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .stat-foot {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
   .spatial-hero {
     grid-template-columns: 1fr;
@@ -2767,25 +2767,25 @@ html[data-motion="off"] .modal {
     padding: 30px 30px 0;
   }
   .hero-copy h2 {
-    font-size: 38px;
+    font-size: calc(38px * var(--text-scale, 1));
   }
   .hero-copy p {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
   }
   .hero-kicker {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .hero-actions {
     gap: 20px;
   }
   .hero-primary {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
   }
   .hero-secondary {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .hero-live {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .scene-wrap {
     height: 285px;
@@ -2808,10 +2808,10 @@ html[data-motion="off"] .modal {
     bottom: 10px;
   }
   .scene-controls > span {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .scene-controls > small {
-    font-size: 6px;
+    font-size: calc(6px * var(--text-scale, 1));
   }
   .hero-desktop-break {
     display: none;
@@ -2841,7 +2841,7 @@ html[data-motion="off"] .modal {
     padding: 10px;
   }
   .heading-actions .btn.primary {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .pos-layout {
     grid-template-columns: minmax(0, 1fr) 265px;
@@ -2858,32 +2858,32 @@ html[data-motion="off"] .modal {
     border-radius: 13px;
   }
   .products-grid .product-card > strong {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
   }
   .products-grid .product-card > small {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
   .products-grid .product-price {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
   }
   .products-grid .product-price > small {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .cart-heading {
     padding-inline: 17px;
   }
   .cart-heading h2 {
-    font-size: 15px;
+    font-size: calc(15px * var(--text-scale, 1));
   }
   .cart-line strong,
   .cart-line > b {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .cart-safe {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .cart-total-row {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .motion-toggle > span {
     display: none;
@@ -2898,7 +2898,7 @@ html[data-motion="off"] .modal {
     grid-template-columns: 1fr;
   }
   .report-stats section > strong {
-    font-size: 25px;
+    font-size: calc(25px * var(--text-scale, 1));
   }
 }
 @media (max-width: 800px) {
@@ -2910,7 +2910,7 @@ html[data-motion="off"] .modal {
     margin-left: 190px;
   }
   .brand {
-    font-size: 20px;
+    font-size: calc(20px * var(--text-scale, 1));
     gap: 6px;
   }
   .brand-mark {
@@ -2918,7 +2918,7 @@ html[data-motion="off"] .modal {
     width: 32px;
   }
   .brand small {
-    font-size: 4.7px;
+    font-size: calc(4.7px * var(--text-scale, 1));
     letter-spacing: 0.65px;
   }
   .store-switch {
@@ -2926,17 +2926,17 @@ html[data-motion="off"] .modal {
     gap: 6px;
   }
   .store-switch strong {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
   .store-switch small {
-    font-size: 7px;
+    font-size: calc(7px * var(--text-scale, 1));
   }
   .store-avatar {
     width: 28px;
     height: 29px;
   }
   .nav-item {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
     padding: 11px 10px;
     gap: 9px;
   }
@@ -2944,19 +2944,19 @@ html[data-motion="off"] .modal {
     left: -11px;
   }
   .nav-caption {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .shift-mini > span:nth-child(2) {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
   .shift-mini small {
-    font-size: 7px;
+    font-size: calc(7px * var(--text-scale, 1));
   }
   .profile strong {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .profile small {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
   .workspace {
     padding: 24px 20px 0;
@@ -2966,13 +2966,13 @@ html[data-motion="off"] .modal {
     height: 65px;
   }
   .page-heading h1 {
-    font-size: 24px;
+    font-size: calc(24px * var(--text-scale, 1));
   }
   .page-heading p {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
   }
   .page-heading .eyebrow {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .pos-layout {
     grid-template-columns: 1fr;
@@ -2992,28 +2992,28 @@ html[data-motion="off"] .modal {
   }
   .cart-line strong,
   .cart-line > b {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .cart-bottom {
     padding: 20px;
   }
   .cart-total-row {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .checkout-btn {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .cart-safe {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .category-tabs button {
     padding: 8px 12px;
   }
   .local-date {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .hero-copy h2 {
-    font-size: 35px;
+    font-size: calc(35px * var(--text-scale, 1));
   }
   .hero-copy {
     padding: 27px 26px 0;
@@ -3022,31 +3022,31 @@ html[data-motion="off"] .modal {
     gap: 13px;
   }
   .hero-primary {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .hero-secondary {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
   .hero-live {
-    font-size: 7px;
+    font-size: calc(7px * var(--text-scale, 1));
   }
   .hero-kicker {
-    font-size: 7px;
+    font-size: calc(7px * var(--text-scale, 1));
   }
   .stat-top {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .stat-card > strong {
-    font-size: 25px;
+    font-size: calc(25px * var(--text-scale, 1));
   }
   .stat-foot {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .inventory-stats section > strong {
-    font-size: 22px;
+    font-size: calc(22px * var(--text-scale, 1));
   }
   .inventory-stats section > span {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .catalog-toolbar {
     flex-wrap: wrap;
@@ -3060,22 +3060,22 @@ html[data-motion="off"] .modal {
     flex: 1;
   }
   .catalog-toolbar > .btn {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
   }
   .auth-story {
     padding: 35px;
   }
   .auth-copy h1 {
-    font-size: 44px;
+    font-size: calc(44px * var(--text-scale, 1));
   }
   .auth-copy > p {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .auth-form {
     padding: 30px;
   }
   .auth-form h2 {
-    font-size: 23px;
+    font-size: calc(23px * var(--text-scale, 1));
   }
   .auth-art {
     transform: scale(0.8);
@@ -3088,7 +3088,7 @@ html[data-motion="off"] .modal {
   .workspace-footer,
   .workspace-footer > span:last-child,
   .footer-brand {
-    font-size: 7px;
+    font-size: calc(7px * var(--text-scale, 1));
   }
 }
 @media (max-width: 620px) {
@@ -3102,7 +3102,7 @@ html[data-motion="off"] .modal {
     margin-left: 0;
   }
   .sidebar .brand {
-    font-size: 25px;
+    font-size: calc(25px * var(--text-scale, 1));
     gap: 10px;
   }
   .sidebar .brand-mark {
@@ -3110,7 +3110,7 @@ html[data-motion="off"] .modal {
     height: 49px;
   }
   .sidebar .brand small {
-    font-size: 6.2px;
+    font-size: calc(6.2px * var(--text-scale, 1));
     letter-spacing: 0.9px;
   }
   .sidebar .store-switch {
@@ -3118,17 +3118,17 @@ html[data-motion="off"] .modal {
     gap: 9px;
   }
   .sidebar .store-switch strong {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
   }
   .sidebar .store-switch small {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
   .sidebar .store-avatar {
     width: 32px;
     height: 34px;
   }
   .nav-item {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
     padding: 12px 14px;
     gap: 12px;
   }
@@ -3136,19 +3136,19 @@ html[data-motion="off"] .modal {
     left: -17px;
   }
   .nav-caption {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
   .shift-mini > span:nth-child(2) {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .shift-mini small {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .profile strong {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .profile small {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .topbar {
     height: 63px;
@@ -3158,11 +3158,11 @@ html[data-motion="off"] .modal {
     gap: 8px;
   }
   .breadcrumb {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
     gap: 8px;
   }
   .local-date {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .motion-toggle {
     padding: 6px 7px;
@@ -3188,15 +3188,15 @@ html[data-motion="off"] .modal {
     margin-bottom: 19px;
   }
   .page-heading h1 {
-    font-size: 24px;
+    font-size: calc(24px * var(--text-scale, 1));
     letter-spacing: -1px;
   }
   .page-heading p {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
     max-width: 240px;
   }
   .page-heading .eyebrow {
-    font-size: 7px;
+    font-size: calc(7px * var(--text-scale, 1));
     letter-spacing: 1.2px;
   }
   .heading-actions .btn.primary {
@@ -3216,7 +3216,7 @@ html[data-motion="off"] .modal {
     padding: 9px;
   }
   .demo-bar {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
     line-height: 1.65;
     padding: 8px 10px;
     margin-bottom: 18px;
@@ -3234,17 +3234,17 @@ html[data-motion="off"] .modal {
     padding: 26px 23px 0;
   }
   .hero-copy h2 {
-    font-size: 36px;
+    font-size: calc(36px * var(--text-scale, 1));
     letter-spacing: -1.6px;
     line-height: 1.12;
     margin: 16px 0 13px;
   }
   .hero-kicker {
-    font-size: 7px;
+    font-size: calc(7px * var(--text-scale, 1));
     letter-spacing: 1.2px;
   }
   .hero-copy p {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
     line-height: 1.8;
   }
   .hero-actions {
@@ -3254,18 +3254,18 @@ html[data-motion="off"] .modal {
   }
   .hero-primary {
     padding: 11px 13px;
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
     gap: 11px;
   }
   .hero-secondary {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
     gap: 5px;
   }
   .hero-secondary svg {
     width: 13px;
   }
   .hero-live {
-    font-size: 7px;
+    font-size: calc(7px * var(--text-scale, 1));
     gap: 4px;
     margin-top: 22px;
     white-space: normal;
@@ -3298,10 +3298,10 @@ html[data-motion="off"] .modal {
     bottom: 12px;
   }
   .scene-controls > span {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .scene-controls > small {
-    font-size: 6px;
+    font-size: calc(6px * var(--text-scale, 1));
   }
   .scene-controls button {
     width: 25px;
@@ -3323,7 +3323,7 @@ html[data-motion="off"] .modal {
     margin-bottom: 15px;
   }
   .period-label {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
     gap: 4px;
     white-space: nowrap;
   }
@@ -3335,7 +3335,7 @@ html[data-motion="off"] .modal {
     border-radius: 9px;
   }
   .tab-group button {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
     padding: 6px 8px;
   }
   .stats-grid {
@@ -3347,7 +3347,7 @@ html[data-motion="off"] .modal {
     border-radius: 14px;
   }
   .stat-top {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
     gap: 6px;
   }
   .stat-icon {
@@ -3362,12 +3362,12 @@ html[data-motion="off"] .modal {
     width: 15px;
   }
   .stat-card > strong {
-    font-size: 24px;
+    font-size: calc(24px * var(--text-scale, 1));
     letter-spacing: -0.8px;
     margin: 16px 0 13px;
   }
   .stat-foot {
-    font-size: 7px;
+    font-size: calc(7px * var(--text-scale, 1));
     line-height: 1.5;
     min-height: 20px;
   }
@@ -3375,7 +3375,7 @@ html[data-motion="off"] .modal {
     width: 6px;
   }
   .trend {
-    font-size: 7px;
+    font-size: calc(7px * var(--text-scale, 1));
   }
   .panel {
     border-radius: 15px;
@@ -3384,16 +3384,16 @@ html[data-motion="off"] .modal {
     padding: 21px 18px 16px;
   }
   .panel-heading h2 {
-    font-size: 14px;
+    font-size: calc(14px * var(--text-scale, 1));
   }
   .panel-heading p {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .chart-legend {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
   .chart-legend small {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .sales-chart {
     padding: 3px 15px 5px;
@@ -3402,7 +3402,7 @@ html[data-motion="off"] .modal {
     min-height: 155px;
   }
   .chart-axis {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
   }
   .dashboard-middle,
   .dashboard-bottom {
@@ -3410,10 +3410,10 @@ html[data-motion="off"] .modal {
     margin-bottom: 19px;
   }
   .attention-row strong {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .attention-row small {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .attention-row {
     padding: 16px 0;
@@ -3423,42 +3423,42 @@ html[data-motion="off"] .modal {
     padding: 16px 13px;
   }
   .attention-note > span:first-child {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .attention-note p {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .recent-panel .text-btn {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .recent-panel th {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
     padding: 12px 10px;
   }
   .recent-panel td {
     padding: 15px 10px;
   }
   .recent-panel .receipt-link {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .recent-panel .customer-name {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
   .recent-panel td.amount {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .recent-panel td small {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .recent-panel .badge {
-    font-size: 7px;
+    font-size: calc(7px * var(--text-scale, 1));
     padding: 5px;
   }
   .best-product strong {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .best-product > span:not(.product-image) small {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .best-products {
     padding: 0 20px;
@@ -3467,7 +3467,7 @@ html[data-motion="off"] .modal {
     padding: 15px 0;
   }
   .best-link {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
     padding: 16px;
   }
   .daily-note {
@@ -3475,11 +3475,11 @@ html[data-motion="off"] .modal {
     gap: 12px;
   }
   .daily-note strong {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
     line-height: 1.6;
   }
   .daily-note p {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
     line-height: 1.7;
   }
   .daily-note .btn {
@@ -3489,7 +3489,7 @@ html[data-motion="off"] .modal {
   .workspace-footer,
   .workspace-footer > span:last-child,
   .footer-brand {
-    font-size: 7px;
+    font-size: calc(7px * var(--text-scale, 1));
   }
   .workspace-footer {
     gap: 7px;
@@ -3510,28 +3510,28 @@ html[data-motion="off"] .modal {
     border-radius: 14px;
   }
   .products-grid .product-card > strong {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
     line-height: 1.4;
   }
   .products-grid .product-card > small {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
   .products-grid .product-price {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
     flex-wrap: wrap;
     gap: 6px;
   }
   .products-grid .product-price > small {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .product-category {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
     letter-spacing: 1px;
   }
   .stock-chip,
   .products-grid .stock-chip,
   .stock-chip.neutral {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
     padding: 4px 6px;
     left: 8px;
     top: 8px;
@@ -3546,16 +3546,16 @@ html[data-motion="off"] .modal {
     width: 16px;
   }
   .category-tabs button {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
     padding: 8px 12px;
   }
   .pos-search-row > .btn {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
     padding: 9px;
     gap: 5px;
   }
   .pos-search-row .search-box input {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .search-box {
     min-height: 42px;
@@ -3563,30 +3563,30 @@ html[data-motion="off"] .modal {
     gap: 8px;
   }
   .search-box input {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
   }
   .catalog-card .product-photo {
     height: 175px;
   }
   .catalog-card .product-card > strong {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .product-card > strong {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .product-card > small {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .catalog-card .badge {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .product-price {
-    font-size: 13px;
+    font-size: calc(13px * var(--text-scale, 1));
     flex-wrap: wrap;
     gap: 8px;
   }
   .catalog-toolbar > .btn {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .cart-panel {
     margin-top: 5px;
@@ -3599,31 +3599,31 @@ html[data-motion="off"] .modal {
     padding: 23px 20px 19px;
   }
   .cart-heading h2 {
-    font-size: 17px;
+    font-size: calc(17px * var(--text-scale, 1));
   }
   .cart-heading .eyebrow {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .cart-line strong,
   .cart-line > b {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .cart-total-row {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .grand-total > strong {
-    font-size: 27px !important;
+    font-size: calc(27px * var(--text-scale, 1)) !important;
   }
   .checkout-btn {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
     min-height: 47px;
   }
   .hold-btn {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
     min-height: 40px;
   }
   .cart-safe {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
   .inventory-stats {
     gap: 12px;
@@ -3632,11 +3632,11 @@ html[data-motion="off"] .modal {
     padding: 20px;
   }
   .inventory-stats section > span {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
     max-width: 110px;
   }
   .inventory-stats section > strong {
-    font-size: 24px;
+    font-size: calc(24px * var(--text-scale, 1));
   }
   .inventory-stats section > svg {
     width: 29px;
@@ -3646,19 +3646,19 @@ html[data-motion="off"] .modal {
     right: 13px;
   }
   .inventory-stats section > strong small {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .report-stats section {
     padding: 21px;
   }
   .report-stats section > strong {
-    font-size: 26px;
+    font-size: calc(26px * var(--text-scale, 1));
   }
   .table-toolbar {
     padding: 16px;
   }
   .table-toolbar .search-box input {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
   }
   .modal {
     padding: 23px;
@@ -3666,33 +3666,33 @@ html[data-motion="off"] .modal {
     max-width: calc(100vw - 28px);
   }
   .modal-head h2 {
-    font-size: 20px;
+    font-size: calc(20px * var(--text-scale, 1));
   }
   .modal-head p,
   .modal-copy {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
   }
   .modal .field > span {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .field input,
   .field select,
   .modal .field input,
   .modal .field select {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .modal .form-grid {
     gap: 0 11px;
   }
   .modal .btn {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
   }
   .auth-story {
     padding: 30px 25px;
     background: linear-gradient(135deg, var(--cream), var(--peach));
   }
   .auth-story .brand {
-    font-size: 24px;
+    font-size: calc(24px * var(--text-scale, 1));
     gap: 9px;
   }
   .auth-story .brand-mark {
@@ -3700,41 +3700,41 @@ html[data-motion="off"] .modal {
     height: 44px;
   }
   .auth-story .brand small {
-    font-size: 5.7px;
+    font-size: calc(5.7px * var(--text-scale, 1));
     letter-spacing: 0.8px;
   }
   .auth-copy h1 {
-    font-size: 38px;
+    font-size: calc(38px * var(--text-scale, 1));
     letter-spacing: -1.8px;
   }
   .auth-copy > p {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .auth-copy .eyebrow {
-    font-size: 7px;
+    font-size: calc(7px * var(--text-scale, 1));
   }
   .auth-form {
     padding: 35px 25px;
   }
   .auth-form h2 {
-    font-size: 25px;
+    font-size: calc(25px * var(--text-scale, 1));
   }
   .auth-form > div > p {
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
   .auth-form .eyebrow {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .auth-form .field > span {
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
   }
   .secure-note {
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
   .toast {
     bottom: 17px;
     right: 14px;
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
     max-width: calc(100vw - 28px);
   }
 }
@@ -3746,20 +3746,20 @@ html[data-motion="off"] .modal {
     padding: 24px 18px 0;
   }
   .hero-copy h2 {
-    font-size: 33px;
+    font-size: calc(33px * var(--text-scale, 1));
   }
   .hero-actions {
     gap: 10px;
   }
   .hero-primary {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
     padding: 11px;
   }
   .hero-secondary {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .hero-live {
-    font-size: 6.5px;
+    font-size: calc(6.5px * var(--text-scale, 1));
   }
   .scene-world {
     scale: 0.74;
@@ -3768,10 +3768,10 @@ html[data-motion="off"] .modal {
     gap: 8px;
   }
   .stat-card > strong {
-    font-size: 21px;
+    font-size: calc(21px * var(--text-scale, 1));
   }
   .stat-top {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
   .stat-icon {
     height: 25px;
@@ -3782,10 +3782,10 @@ html[data-motion="off"] .modal {
     height: 145px;
   }
   .period-label {
-    font-size: 7px;
+    font-size: calc(7px * var(--text-scale, 1));
   }
   .tab-group button {
-    font-size: 8px;
+    font-size: calc(8px * var(--text-scale, 1));
   }
   .motion-toggle > i {
     display: none;

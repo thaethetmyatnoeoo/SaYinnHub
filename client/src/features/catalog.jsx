@@ -21,10 +21,17 @@ import { Button, Badge, Empty, Field, ProductImage } from "../components/ui";
 
 import { ProductForm } from "./products/ProductForm";
 import { CategoryFields } from "./products/CategoryFields";
-export function Catalog({ data, modal, act, notify, owner }) {
+export function Catalog({
+  data,
+  modal,
+  act,
+  notify,
+  owner,
+  initialCategory = "All products",
+}) {
   const [period, SP] = useState(30);
   const [q, Q] = useState(""),
-    [category, C] = useState("All products");
+    [category, C] = useState(initialCategory);
   const categories = ["All products", ...data.categories.map((c) => c.name)];
   const products = data.products.filter(
     (p) =>

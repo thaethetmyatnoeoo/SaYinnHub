@@ -9,41 +9,41 @@ textarea {
   font-size: var(--body-size);
 }
 .nav-item {
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
 }
 .stat-top > span:first-child,
 .stat-foot,
 .attention-item small,
 .report-stats span,
 .report-stats small {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   line-height: 1.5;
 }
 .workspace td,
 .workspace td button,
 .workspace th {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
 }
 .workspace td small,
 .badge,
 .stock-chip,
 .product-category {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .workspace .panel-heading p,
 .workspace .page-heading p {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
 }
 .workspace .btn,
 .modal .btn,
 .field > span {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
 }
 .field input,
 .field select,
 .field textarea {
   min-height: 44px;
-  font-size: 16px;
+  font-size: calc(16px * var(--text-scale, 1));
 }
 .field textarea {
   padding: 12px;
@@ -68,7 +68,7 @@ textarea {
 }
 .image-upload input {
   max-width: 100%;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
 }
 .image-upload small {
   display: block;
@@ -134,11 +134,11 @@ textarea {
 }
 .account-panel h2 {
   margin: 0 0 20px;
-  font-size: 23px;
+  font-size: calc(23px * var(--text-scale, 1));
 }
 .account-panel p,
 .category-editor p {
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
   line-height: 1.7;
   margin-bottom: 20px;
 }
@@ -153,14 +153,14 @@ textarea {
 .custom-fields legend,
 .category-field-row legend {
   padding: 0 8px;
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
   font-weight: 700;
 }
 .check-field {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
 }
 .check-field input {
   width: 20px;
@@ -180,7 +180,7 @@ textarea {
   flex-wrap: wrap;
   gap: 12px;
   padding: 16px 0 22px;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
 }
 .product-activity label {
   display: flex;
@@ -204,7 +204,7 @@ textarea {
   margin: 0 auto 18px;
 }
 .receipt-watermark {
-  font-size: 10px !important;
+  font-size: calc(10px * var(--text-scale, 1)) !important;
   opacity: 0.5;
   margin-top: 14px;
   letter-spacing: 1px;
@@ -228,7 +228,7 @@ textarea {
 }
 .landing a {
   color: #431c16;
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
   text-decoration: none;
 }
 .landing-hero {
@@ -245,7 +245,7 @@ textarea {
   margin: 24px 0;
 }
 .landing-hero p {
-  font-size: 19px;
+  font-size: calc(19px * var(--text-scale, 1));
   line-height: 1.8;
   margin: 25px 0;
   max-width: 600px;
@@ -275,12 +275,12 @@ textarea {
   object-fit: contain;
 }
 .landing-art span {
-  font-size: 34px;
+  font-size: calc(34px * var(--text-scale, 1));
   font-weight: 800;
 }
 .landing-art small {
   margin-top: 14px;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
 }
 .landing-features {
   display: grid;
@@ -291,17 +291,17 @@ textarea {
   padding: 28px;
 }
 .landing-features h2 {
-  font-size: 20px;
+  font-size: calc(20px * var(--text-scale, 1));
   line-height: 1.4;
   margin: 20px 0 12px;
 }
 .landing-features p {
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
   line-height: 1.8;
 }
 .landing footer {
   padding: 48px 0 10px;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 @media (max-width: 1000px) {
   .account-grid {
@@ -339,7 +339,7 @@ textarea {
   }
   .workspace td,
   .workspace th {
-    font-size: 13px;
+    font-size: calc(13px * var(--text-scale, 1));
   }
   .catalog-toolbar .search-box {
     width: 100%;
@@ -399,7 +399,7 @@ textarea {
   gap: 12px;
 }
 .registration-roles legend {
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
   font-weight: 700;
   margin-bottom: 12px;
 }
@@ -424,19 +424,19 @@ textarea {
   height: 18px;
 }
 .registration-roles strong {
-  font-size: 17px;
+  font-size: calc(17px * var(--text-scale, 1));
 }
 .registration-roles span {
   grid-column: 2;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   line-height: 1.6;
 }
 .registration-section {
-  font-size: 17px;
+  font-size: calc(17px * var(--text-scale, 1));
   margin: 26px 0 18px;
 }
 .auth-form .registration-hint {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   line-height: 1.65;
   margin: -10px 0 24px;
 }
@@ -452,7 +452,7 @@ textarea {
   margin: 14px 0;
 }
 .auth-form .auth-switch {
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
   margin-top: 22px;
 }
 .auth-switch a {
@@ -636,7 +636,7 @@ textarea {
   border: 1px solid #fff7ed;
   background: #fff7edbb;
   border-radius: 20px;
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   color: #431c16;
 }
 .showcase-selector {
@@ -688,7 +688,7 @@ textarea {
   object-fit: cover;
 }
 .showcase-selector button span:last-child {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 700;
 }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
@@ -724,7 +724,7 @@ textarea {
   margin: 16px 0;
 }
 .variant-facts dt {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .variant-facts dd {
   margin: 4px 0;
@@ -744,7 +744,7 @@ textarea {
   border: 1px solid #fdba74;
   border-radius: 12px;
   color: #431c16;
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .language-switch select {
   border: 0;
