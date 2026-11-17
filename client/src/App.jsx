@@ -1,4 +1,4 @@
-import { FontControl, usePreference } from "./components/DisplayControls";
+import { usePreference } from "./components/DisplayControls";
 import { CategoryFields } from "./features/products/CategoryFields";
 import { UserGuide } from "./features/UserGuide";
 import { Tags, BookOpen, PanelLeftOpen } from "lucide-react";
@@ -476,7 +476,6 @@ export default function App() {
               <PanelLeftClose size={22} />
             )}
           </button>
-          <FontControl />
           <LanguageSwitcher />
           <div className="breadcrumb">
             <button

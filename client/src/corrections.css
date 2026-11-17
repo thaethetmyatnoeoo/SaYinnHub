@@ -1,22 +1,6 @@
 :root {
   --text-scale: 1;
 }
-html[data-text-size="large"] {
-  --text-scale: 1.12;
-}
-html[data-text-size="larger"] {
-  --text-scale: 1.25;
-}
-.font-control {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: calc(13px * var(--text-scale));
-}
-.font-control select {
-  max-width: 140px;
-  padding: 8px;
-}
 .topbar {
   flex-wrap: wrap;
   height: auto;
@@ -243,4 +227,126 @@ html[data-text-size="larger"] {
   .app-shell .sidebar.mobile-open {
     visibility: visible;
   }
+}
+/* Compact display preferences: one-touch choices on a softly raised rail. */
+.preference-control.language-switch {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  gap: 9px;
+  padding: 5px 6px 5px 11px;
+  border: 1px solid #431c1612;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #fffaf3, #fff0e5);
+  box-shadow:
+    inset 0 1px 0 #ffffff,
+    0 3px 0 #431c1608,
+    0 6px 16px #431c1605;
+  flex-shrink: 0;
+}
+.preference-control .preference-icon {
+  color: #8b655a;
+  flex-shrink: 0;
+}
+.preference-options {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+.preference-control .preference-options button {
+  appearance: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  color: #77564c;
+  background: transparent;
+  box-shadow: none;
+  font-family: inherit;
+  font-size: calc(12px * var(--text-scale, 1));
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: 0;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+.preference-control .preference-options button:hover {
+  background: #fdba7428;
+  color: #431c16;
+  transform: translateY(-1px);
+}
+.preference-control .preference-options button[aria-pressed="true"] {
+  color: #431c16;
+  background: linear-gradient(145deg, #ffe1cc, #ffcbb8);
+  border-color: #f9736029;
+  box-shadow:
+    inset 0 1px 0 #fff8,
+    0 2px 3px #431c1610;
+}
+.preference-control .preference-options button:focus-visible {
+  outline: 2px solid #f97360;
+  outline-offset: 2px;
+}
+.preference-control .preference-options button:active {
+  transform: translateY(1px);
+}
+.preference-control button[lang="my"] {
+  font-family: "Noto Sans Myanmar", sans-serif;
+  min-width: 58px;
+}
+@media (pointer: coarse) {
+  .preference-control .preference-options button {
+    min-height: 44px;
+    min-width: 40px;
+  }
+}
+@media (max-width: 620px) {
+  .preference-control.language-switch {
+    gap: 5px;
+    padding-inline: 6px;
+    border-radius: 14px;
+  }
+  .preference-control .preference-options button {
+    padding-inline: 7px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .preference-control .preference-options button {
+    transition: none;
+  }
+}
+
+/* Compact Myanmar rhythm; preserve natural shaping and stacked marks. */
+html[lang="my"] {
+  --text-scale: 0.94;
+}
+html[lang="my"] body,
+html[lang="my"] button,
+html[lang="my"] input,
+html[lang="my"] select,
+html[lang="my"] textarea,
+html[lang="my"] h1,
+html[lang="my"] h2,
+html[lang="my"] h3 {
+  line-height: 1.65;
+  letter-spacing: normal;
+}
+html[lang="my"] :is(h1, h2, h3, h4, .nav-label, .btn) {
+  font-family: "Noto Sans Myanmar", "Myanmar Text", sans-serif;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+}
+html[lang="my"] :is(.nav-label, .btn, label, th) {
+  font-weight: 500;
+}
+html[lang="my"] :is(input, select, textarea) {
+  font-weight: 400;
 }

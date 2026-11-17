@@ -1,5 +1,7 @@
 import { LanguageValidation } from "./i18n";
 import "@fontsource/noto-sans-myanmar/myanmar-400.css";
+import "@fontsource/noto-sans-myanmar/myanmar-500.css";
+import "@fontsource/noto-sans-myanmar/myanmar-600.css";
 import "@fontsource/noto-sans-myanmar/myanmar-700.css";
 import React from "react";
 import { createRoot } from "react-dom/client";
