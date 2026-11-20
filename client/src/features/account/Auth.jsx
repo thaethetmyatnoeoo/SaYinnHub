@@ -1,6 +1,6 @@
 import { t as tr, LanguageSwitcher } from "../../i18n";
 import { validatePersonal } from "./validation";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -10,34 +10,6 @@ import {
 import { api } from "../../api";
 import { Brand, Button, Field } from "../../components/ui";
 export function Auth({ done, status, register, back, shopCode, login }) {
-  const [challenge, setChallenge] = useState(null);
-  const [sending, setSending] = useState(false);
-  const [cooldown, setCooldown] = useState(0);
-  useEffect(() => {
-    if (!cooldown) return;
-    const timer = setTimeout(
-      () => setCooldown((v) => Math.max(0, v - 1)),
-      1000,
-    );
-    return () => clearTimeout(timer);
-  }, [cooldown]);
-  async function sendCode(e) {
-    const field = e.currentTarget.form.elements.email;
-    if (!field.reportValidity()) return;
-    setSending(true);
-    setError("");
-    setChallenge(null);
-    try {
-      const email = field.value.trim().toLowerCase();
-      const result = await api("/auth/email-code", { email });
-      setChallenge({ ...result, email });
-      setCooldown(result.retryAfter);
-    } catch (e) {
-      setError(e.message);
-    } finally {
-      setSending(false);
-    }
-  }
   const [role, setRole] = useState("OWNER"),
     [success, setSuccess] = useState(null),
     [busy, setBusy] = useState(false),
@@ -52,15 +24,7 @@ export function Auth({ done, status, register, back, shopCode, login }) {
         validatePersonal(data, { password: true, phone: true });
         if (data.password !== data.confirmPassword)
           throw new Error("Passwords must match.");
-        if (!challenge || challenge.email !== data.email.trim().toLowerCase())
-          throw new Error(
-            "Send a verification code to your current email first.",
-          );
-        const result = await api("/auth/register", {
-          ...data,
-          role,
-          challengeId: challenge.challengeId,
-        });
+        const result = await api("/auth/register", { ...data, role });
         setSuccess(result);
         return;
       }
@@ -211,7 +175,6 @@ export function Auth({ done, status, register, back, shopCode, login }) {
                       type="email"
                       autoComplete="email"
                       maxLength={254}
-                      onChange={() => setChallenge(null)}
                       required
                     />
                     <Field
@@ -221,50 +184,6 @@ export function Auth({ done, status, register, back, shopCode, login }) {
                       autoComplete="tel"
                       minLength={5}
                       maxLength={40}
-                      required
-                    />
-                  </div>
-                  <div className="email-verification">
-                    <div className="email-verification-heading">
-                      <ShieldCheck size={20} aria-hidden="true" />
-                      <strong>{tr("Verify your email")}</strong>
-                    </div>
-                    <p>
-                      {tr(
-                        "We will email you a six-digit code before creating your account.",
-                      )}
-                    </p>
-                    <button
-                      className="btn"
-                      type="button"
-                      onClick={sendCode}
-                      disabled={sending || cooldown > 0 || busy}
-                    >
-                      {sending
-                        ? tr("Sending code…")
-                        : cooldown > 0
-                          ? tr("Resend in {{seconds}}s", { seconds: cooldown })
-                          : challenge
-                            ? tr("Resend code")
-                            : tr("Send verification code")}
-                    </button>
-                    {challenge && (
-                      <p role="status">
-                        {tr(
-                          "Code sent to {{email}}. Check your inbox or spam folder. It expires in 10 minutes.",
-                          { email: challenge.email },
-                        )}
-                      </p>
-                    )}
-                    <Field
-                      label={tr("Verification code")}
-                      name="verificationCode"
-                      inputMode="numeric"
-                      autoComplete="one-time-code"
-                      pattern="[0-9]{6}"
-                      minLength={6}
-                      maxLength={6}
-                      placeholder="000000"
                       required
                     />
                   </div>

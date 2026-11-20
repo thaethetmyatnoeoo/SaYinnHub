@@ -56,15 +56,13 @@ test("email codes are bound, hashed, single-use, expiring and attempt-limited", 
   }
 });
 
-test("registration cannot bypass email verification; delivery failure is not success", async () => {
+test("registration needs no email code and the retired endpoint cannot send mail", async () => {
   const db = await database(undefined, ":memory:");
   const app = await createHub(db, {
-    sendEmail: async () => {
-      throw Object.assign(new Error("Delivery unavailable"), { status: 503 });
-    },
+    openShop: () => database(undefined, ":memory:"),
   });
   try {
-    await request(app)
+    const created = await request(app)
       .post("/api/v1/auth/register")
       .send({
         name: "Test Owner",
@@ -75,16 +73,19 @@ test("registration cannot bypass email verification; delivery failure is not suc
         role: "OWNER",
         storeName: "Test",
       })
-      .expect(400);
-    assert.equal((await db.query("SELECT * FROM shops")).length, 0);
+      .expect(201);
+    await request(app)
+      .post("/api/v1/auth/login")
+      .send({
+        shopCode: created.body.shopCode,
+        username: "owner",
+        password: "StrongPassword123!",
+      })
+      .expect(200);
     await request(app)
       .post("/api/v1/auth/email-code")
       .send({ email: "test@example.com" })
-      .expect(503);
-    assert.equal(
-      (await db.query("SELECT ready FROM email_challenges"))[0].ready,
-      0,
-    );
+      .expect(410);
   } finally {
     await app.closeShops();
     await db.close();

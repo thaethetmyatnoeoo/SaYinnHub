@@ -8,15 +8,12 @@ import { database } from "../server/database.js";
 import { createHub } from "../server/hub.js";
 
 let root, hub;
-let delivered;
 let codes;
 beforeEach(async () => {
   codes = {};
-  delivered = new Map();
   root = await database(undefined, ":memory:");
   hub = await createHub(root, {
     demo: true,
-    sendEmail: async (email, code) => delivered.set(email, code),
     openShop: () => database(undefined, ":memory:"),
   });
 });
@@ -31,27 +28,8 @@ const details = {
   email: "owner@example.com",
   phone: "+959123456789",
 };
-async function proof(app, db, email) {
-  if (!email.includes("@")) return {};
-  await db.query("UPDATE email_challenges SET sent='' WHERE email=?", [
-    email.toLowerCase(),
-  ]);
-  const response = await request(app)
-    .post("/api/v1/auth/email-code")
-    .send({ email })
-    .expect(200);
-  return {
-    challengeId: response.body.challengeId,
-    verificationCode: delivered.get(email.toLowerCase()),
-  };
-}
 const register = (code, overrides = {}) => ({
   async expect(status) {
-    const verification = await proof(
-      hub,
-      root,
-      overrides.email || details.email,
-    );
     const res = await request(hub)
       .post("/api/v1/auth/register")
       .send({
@@ -60,7 +38,6 @@ const register = (code, overrides = {}) => ({
         shopCode: overrides.role === "MEMBER" ? codes[code] || code : code,
         storeName: code,
         ...overrides,
-        ...verification,
       })
       .expect(status);
     if (res.status === 201 && !res.body.pending)
@@ -261,7 +238,6 @@ test("shop registrations survive a server restart with separate SQLite files", a
   const boot = async () => {
     mainDb = await database(undefined, path.join(folder, "main.sqlite"));
     app = await createHub(mainDb, {
-      sendEmail: async (email, code) => delivered.set(email, code),
       openShop: (code) =>
         database(undefined, path.join(folder, code + ".sqlite")),
     });
@@ -275,7 +251,6 @@ test("shop registrations survive a server restart with separate SQLite files", a
         role: "OWNER",
         shopCode: "persistent",
         storeName: "Persistent Shop",
-        ...(await proof(app, mainDb, details.email)),
       })
       .expect(201);
     await app.closeShops();
