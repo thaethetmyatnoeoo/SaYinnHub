@@ -1370,3 +1370,7 @@ html[lang="my"] :is(input, select, textarea) {
     flex-direction: column;
   }
 }
+
+/* Clear blue notification and inventory indicators. */
+.app-shell .notification i { width: 9px; height: 9px; background: #2563eb; border: 2px solid #fff7ed; top: 2px; right: 3px; }
+.app-shell .nav-count { min-width: 25px; width: auto; height: 25px; padding: 0 6px; background: #2563eb; color: #fff; font-size: 12px; font-weight: 700; border-radius: 8px; }
