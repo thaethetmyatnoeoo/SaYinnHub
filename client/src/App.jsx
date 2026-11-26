@@ -682,7 +682,7 @@ export default function App() {
             <Catalog {...props} initialCategory={catalogCategory} />
           )}
           {active === "Categories" && owner && (
-            <section className="panel account-panel">
+            <section className="categories-page">
               <CategoryFields
                 {...props}
                 onSelect={(name) => {
