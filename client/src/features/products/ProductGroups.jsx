@@ -1,3 +1,4 @@
+import { Images } from "lucide-react";
 import { t as tr } from "../../i18n";
 import {
   variantDimensions,
@@ -53,8 +54,13 @@ export function ProductBanner({ variants }) {
             </div>
           ))}
         </div>
-        <span className="showcase-count">
-          {photos.length} {photos.length === 1 ? tr("view") : tr("views")}
+        <span
+          className="showcase-count"
+          title={tr("{{count}} product photos", { count: photos.length })}
+          aria-label={tr("{{count}} product photos", { count: photos.length })}
+        >
+          <Images size={14} aria-hidden="true" />
+          <span aria-hidden="true">{photos.length}</span>
         </span>
       </div>
       {photos.length > 1 && (

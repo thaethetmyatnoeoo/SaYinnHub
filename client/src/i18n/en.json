@@ -897,5 +897,13 @@
   "Step {{number}}": "Step {{number}}",
   "Previous": "Previous",
   "Next step": "Next step",
-  "Create your workspace": "Create your workspace"
+  "Create your workspace": "Create your workspace",
+  "Back": "Back",
+  "Show password": "Show password",
+  "Hide password": "Hide password",
+  "{{count}} product photos": "{{count}} product photos",
+  "Rename {{name}}": "Rename {{name}}",
+  "Remove {{name}}": "Remove {{name}}",
+  "Remove category": "Remove category",
+  "Add your first category to organize your products.": "Add your first category to organize your products."
 }

@@ -1,3 +1,4 @@
+import { UserRound } from "lucide-react";
 import { t as tr } from "../i18n";
 import React, { useRef, useState } from "react";
 import { imageUrl, api } from "../api";
@@ -47,7 +48,11 @@ export function ImageUpload({
     }
   }
   return (
-    <div className="image-upload">
+    <div
+      className={
+        "image-upload" + (purpose === "profile" ? " profile-image-upload" : "")
+      }
+    >
       <label>
         <span>{label}</span>
         <input
@@ -58,6 +63,14 @@ export function ImageUpload({
           disabled={busy}
         />
       </label>
+      {purpose === "profile" && !value && !preview && (
+        <div
+          className="profile-upload-fallback"
+          aria-label={tr("Profile picture")}
+        >
+          <UserRound size={40} aria-hidden="true" />
+        </div>
+      )}
       {(value || preview) && (
         <div className="image-preview">
           <img

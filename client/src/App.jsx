@@ -19,6 +19,7 @@ import {
   ArrowUpRight,
   ArrowDownRight,
   ArrowRight,
+  ArrowLeft,
   Plus,
   Search,
   ChevronDown,
@@ -123,6 +124,35 @@ export default function App() {
     [search, Q] = useState(""),
     [cart, C] = useState([]),
     [receipt, R] = useState(null);
+  const routeTrail = useRef([]);
+  const currentRoute = useRef(page);
+  function rememberRoute(next) {
+    if (next !== currentRoute.current) {
+      routeTrail.current.push(currentRoute.current);
+      routeTrail.current = routeTrail.current.slice(-40);
+      currentRoute.current = next;
+    }
+    P(next);
+  }
+  function goBack() {
+    const permitted = new Set(
+      allowed.map(([name]) => name).concat(["Profile", "Customers"]),
+    );
+    let previous;
+    while (routeTrail.current.length) {
+      const candidate = routeTrail.current.pop();
+      if (candidate !== currentRoute.current && permitted.has(candidate)) {
+        previous = candidate;
+        break;
+      }
+    }
+    const next = previous || "Overview";
+    currentRoute.current = next;
+    P(next);
+    history.replaceState(null, "", "#" + encodeURIComponent(next));
+    Q("");
+    SM(false);
+  }
   const toastTimer = useRef();
   const notify = (message) => {
     T(message);
@@ -161,13 +191,13 @@ export default function App() {
   }, []);
   useEffect(() => {
     const handler = () =>
-      P(decodeURIComponent(location.hash.slice(1)) || "Overview");
+      rememberRoute(decodeURIComponent(location.hash.slice(1)) || "Overview");
     window.addEventListener("hashchange", handler);
     return () => window.removeEventListener("hashchange", handler);
   }, []);
   function go(p) {
     if (p !== "Products") setCatalogCategory("All products");
-    P(p);
+    rememberRoute(p);
     location.hash = p;
     Q("");
     SM(false);
@@ -330,7 +360,25 @@ export default function App() {
         >
           <X size={20} />
         </button>
-        <Brand />
+        <div className="sidebar-header">
+          <Brand />
+          <button
+            className="icon-btn sidebar-toggle"
+            aria-controls="workspace-sidebar"
+            aria-expanded={!collapsed}
+            aria-label={tr(collapsed ? "Expand sidebar" : "Collapse sidebar")}
+            title={tr(collapsed ? "Expand sidebar" : "Collapse sidebar")}
+            onClick={() =>
+              setSidebarState(collapsed ? "expanded" : "collapsed")
+            }
+          >
+            {collapsed ? (
+              <PanelLeftOpen size={22} />
+            ) : (
+              <PanelLeftClose size={22} />
+            )}
+          </button>
+        </div>
         <button
           className="store-switch"
           aria-label={tr("Switch shop")}
@@ -373,9 +421,6 @@ export default function App() {
                 <span className="nav-label">{tr(name)}</span>
                 {name === "Inventory" && !!low.length && (
                   <span className="nav-count">{low.length}</span>
-                )}
-                {name === "Point of sale" && (
-                  <span className="nav-shortcut">{tr("P")}</span>
                 )}
               </button>
             ))}
@@ -462,23 +507,6 @@ export default function App() {
       </aside>
       <div className="main-shell">
         <header className="topbar">
-          <button
-            className="icon-btn sidebar-toggle"
-            aria-controls="workspace-sidebar"
-            aria-expanded={!collapsed}
-            aria-label={tr(collapsed ? "Expand sidebar" : "Collapse sidebar")}
-            title={tr(collapsed ? "Expand sidebar" : "Collapse sidebar")}
-            onClick={() =>
-              setSidebarState(collapsed ? "expanded" : "collapsed")
-            }
-          >
-            {collapsed ? (
-              <PanelLeftOpen size={22} />
-            ) : (
-              <PanelLeftClose size={22} />
-            )}
-          </button>
-          <LanguageSwitcher />
           <div className="breadcrumb">
             <button
               className="icon-btn mobile-menu"
@@ -494,6 +522,7 @@ export default function App() {
             <strong>{tr(active)}</strong>
           </div>
           <div className="topbar-right">
+            <LanguageSwitcher />
             {active !== "Overview" && (
               <MotionToggle enabled={motion} toggle={toggleMotion} />
             )}
@@ -535,6 +564,15 @@ export default function App() {
           }
         >
           <div className="page-heading">
+            <button
+              type="button"
+              className="icon-btn page-back"
+              onClick={goBack}
+              aria-label={tr("Back")}
+              title={tr("Back")}
+            >
+              <ArrowLeft size={21} />
+            </button>
             <div>
               <div className="eyebrow">
                 {active === "Overview"

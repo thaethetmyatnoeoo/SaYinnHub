@@ -841,5 +841,13 @@
   "Step {{number}}": "အဆင့် {{number}}",
   "Previous": "ရှေ့သို့",
   "Next step": "နောက်အဆင့်",
-  "Create your workspace": "သင့်လုပ်ငန်းခွင် ဖန်တီးရန်"
+  "Create your workspace": "သင့်လုပ်ငန်းခွင် ဖန်တီးရန်",
+  "Back": "နောက်သို့",
+  "Show password": "စကားဝှက်ပြရန်",
+  "Hide password": "စကားဝှက်ဖျောက်ရန်",
+  "{{count}} product photos": "ကုန်ပစ္စည်းပုံ {{count}} ပုံ",
+  "Rename {{name}}": "{{name}} အမည်ပြောင်းရန်",
+  "Remove {{name}}": "{{name}} ဖျက်ရန်",
+  "Remove category": "အမျိုးအစားဖျက်ရန်",
+  "Add your first category to organize your products.": "ကုန်ပစ္စည်းများကို စီစဉ်ရန် ပထမဆုံးအမျိုးအစား ထည့်ပါ။"
 }

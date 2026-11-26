@@ -1,7 +1,7 @@
 import { t as tr, LanguageSwitcher } from "../i18n";
 import { ProductSculpture } from "./spatial";
-import React, { useState, useEffect, useRef } from "react";
-import { ShoppingBag, X } from "lucide-react";
+import React, { useState, useEffect, useRef, useId } from "react";
+import { ShoppingBag, X, Eye, EyeOff } from "lucide-react";
 import {
   imageUrl,
   api,
@@ -53,11 +53,39 @@ export function Empty({
 }
 
 export function Field({ label, children, ...props }) {
+  const [visible, setVisible] = useState(false);
+  const generatedId = useId();
+  const id =
+    props.id || (React.isValidElement(children) && children.props.id) || generatedId;
+  const password = props.type === "password" && !children;
   return (
-    <label className="field">
-      <span>{label}</span>
-      {children || <input {...props} />}
-    </label>
+    <div className="field">
+      <label htmlFor={id}>{label}</label>
+      {password ? (
+        <div className="password-input">
+          <input {...props} id={id} type={visible ? "text" : "password"} />
+          <button
+            type="button"
+            className="password-toggle"
+            aria-label={tr(visible ? "Hide password" : "Show password")}
+            title={tr(visible ? "Hide password" : "Show password")}
+            aria-controls={id}
+            aria-pressed={visible}
+            onClick={() => setVisible((v) => !v)}
+          >
+            {visible ? <Eye size={19} /> : <EyeOff size={19} />}
+          </button>
+        </div>
+      ) : children ? (
+        React.isValidElement(children) ? (
+          React.cloneElement(children, { id: children.props.id || id })
+        ) : (
+          children
+        )
+      ) : (
+        <input {...props} id={id} />
+      )}
+    </div>
   );
 }
 

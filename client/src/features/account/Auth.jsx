@@ -3,6 +3,7 @@ import { validatePersonal } from "./validation";
 import React, { useState } from "react";
 import {
   ArrowRight,
+  ArrowLeft,
   ArrowUpRight,
   CheckCircle2,
   ShieldCheck,
@@ -86,7 +87,12 @@ export function Auth({ done, status, register, back, shopCode, login }) {
         <small>{tr("Made for the way you work.")}</small>
       </div>
       <section className="auth-form">
-        <LanguageSwitcher />
+        <nav className="auth-toolbar" aria-label={tr("Public navigation")}>
+          <Button icon={ArrowLeft} onClick={back}>
+            {tr("Back to home")}
+          </Button>
+          <LanguageSwitcher />
+        </nav>
         <div>
           <span className="eyebrow">{tr("WELCOME TO SAYINN HUB")}</span>
           <h2>
@@ -101,7 +107,6 @@ export function Auth({ done, status, register, back, shopCode, login }) {
                 )
               : tr("Sign in and pick up where you left off.")}
           </p>
-          <Button onClick={back}>{tr("Back to home")}</Button>
           {success ? (
             <div className="registration-success" role="status">
               <CheckCircle2 size={32} />
