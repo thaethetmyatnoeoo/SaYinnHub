@@ -1,6 +1,6 @@
 import { t as tr } from "../../i18n";
 import React, { useEffect, useState } from "react";
-import { Store, Plus, ArrowRight, Check, RefreshCw } from "lucide-react";
+import { Store, Plus, ArrowRight, Check } from "lucide-react";
 import { api } from "../../api";
 import { Button, Field } from "../../components/ui";
 
@@ -9,13 +9,11 @@ export function ShopSwitcher({ current, onSwitch, hasCart = false }) {
     [mode, M] = useState("list"),
     [busy, B] = useState(false),
     [error, E] = useState(""),
-    [message, T] = useState(""),
-    [home, H] = useState("");
+    [message, T] = useState("");
   async function refresh() {
     try {
       const result = await api("/account/shops");
       S(result.shops);
-      H(result.homeCode);
       E("");
     } catch (e) {
       E(e.message);
@@ -74,14 +72,8 @@ export function ShopSwitcher({ current, onSwitch, hasCart = false }) {
         </span>
         <div>
           <h3>{tr("One account. All your shops.")}</h3>
-          <p>{tr("Own a shop here, join a team there.")}</p>
         </div>
       </div>
-      <p className="shop-account-note">
-        {tr("Your account’s sign-in code: ")}
-        <strong>{home}</strong>
-        {tr(". Your password stays the same across shops.")}
-      </p>
       <div className="shop-hub-actions">
         <Button
           kind={mode === "create" ? "primary" : ""}
@@ -98,13 +90,6 @@ export function ShopSwitcher({ current, onSwitch, hasCart = false }) {
         >
           {tr("Join another shop ")}
           <ArrowRight size={16} />
-        </Button>
-        <Button
-          aria-label={tr("Refresh shop memberships")}
-          onClick={refresh}
-          disabled={busy}
-        >
-          <RefreshCw size={16} />
         </Button>
       </div>
       {mode !== "list" && (
