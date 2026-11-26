@@ -564,15 +564,17 @@ export default function App() {
           }
         >
           <div className="page-heading">
-            <button
-              type="button"
-              className="icon-btn page-back"
-              onClick={goBack}
-              aria-label={tr("Back")}
-              title={tr("Back")}
-            >
-              <ArrowLeft size={21} />
-            </button>
+            {active !== "Overview" && (
+              <button
+                type="button"
+                className="icon-btn page-back"
+                onClick={goBack}
+                aria-label={tr("Back")}
+                title={tr("Back")}
+              >
+                <ArrowLeft size={21} />
+              </button>
+            )}
             <div>
               <div className="eyebrow">
                 {active === "Overview"
