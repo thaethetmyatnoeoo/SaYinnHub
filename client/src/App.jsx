@@ -421,7 +421,10 @@ export default function App() {
                 <Icon size={18} />
                 <span className="nav-label">{tr(name)}</span>
                 {name === "Inventory" && !!low.length && (
-                  <span className="nav-count">{low.length}</span>
+                  <span
+                    className="nav-count"
+                    aria-label={tr("{{count}} low stock alerts", { count: low.length })}
+                  />
                 )}
               </button>
             ))}
