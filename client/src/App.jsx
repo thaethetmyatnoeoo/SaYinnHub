@@ -1,4 +1,5 @@
 import { ShopAbout } from "./features/ShopAbout";
+import { Notifications } from "./features/Notifications";
 import { usePreference } from "./components/DisplayControls";
 import { CategoryFields } from "./features/products/CategoryFields";
 import { UserGuide } from "./features/UserGuide";
@@ -539,12 +540,16 @@ export default function App() {
             <button
               className="notification icon-btn"
               aria-label={tr("{{count}} low stock alerts", {
-                count: low.length,
+                count: (data.notifications || []).filter(
+                  (n) => n.status === "unread",
+                ).length,
               })}
               onClick={() => M("notifications")}
             >
               <Bell size={18} />
-              {!!low.length && <i />}
+              {(data.notifications || []).some(
+                (n) => n.status === "unread",
+              ) && <i />}
             </button>
             <button
               className="avatar tiny"
@@ -987,33 +992,14 @@ export default function App() {
             </form>
           )}
           {modal === "notifications" && (
-            <div className="notification-list">
-              {low.length ? (
-                low.map((p) => (
-                  <button
-                    key={p.id}
-                    onClick={() => {
-                      M(null);
-                      go("Inventory");
-                    }}
-                  >
-                    <ProductImage product={p} />
-                    <span>
-                      <strong>{p.name}</strong>
-                      <small>
-                        {p.stock}
-                        {tr(" left · Time for a restock")}
-                      </small>
-                    </span>
-                    <ChevronRight size={16} />
-                  </button>
-                ))
-              ) : (
-                <Empty icon={CheckCheck} title={tr("All caught up")}>
-                  {tr("Your shelves are looking good.")}
-                </Empty>
-              )}
-            </div>
+            <Notifications
+              items={data.notifications || []}
+              act={act}
+              openInventory={() => {
+                M(null);
+                go("Inventory");
+              }}
+            />
           )}
           {modal === "store" && (
             <ShopSwitcher

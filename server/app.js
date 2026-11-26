@@ -5,6 +5,7 @@ import {
   registerPayments,
 } from "./features/payments.js";
 import { generatedSku } from "./features/products.js";
+import { readNotifications, registerNotifications } from "./features/notifications.js";
 import {
   passwordPolicy,
   phoneNumber,
@@ -420,6 +421,7 @@ export async function createApp(
       ? next()
       : res.status(403).json({ error: { message: "Owner access required." } });
   registerProducts(app, db, { owner, audit });
+  registerNotifications(app, db);
   registerPayments(app, db, { owner, audit });
   registerWorkspaceFeatures(app, db, {
     owner,
@@ -468,6 +470,7 @@ export async function createApp(
         (m) => req.user.role === "OWNER" || (m.enabled && m.cashier),
       ),
       products,
+      notifications: await readNotifications(db, req.user.id),
       sales,
       customers: await db.query("SELECT * FROM customers ORDER BY name"),
       shift:

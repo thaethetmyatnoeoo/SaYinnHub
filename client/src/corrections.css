@@ -1277,3 +1277,96 @@ html[lang="my"] :is(input, select, textarea) {
     font-size: 12px;
   }
 }
+.notification-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.notification-filters {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 14px;
+  background: #f6e8dc;
+}
+.notification-filters button {
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  padding: 9px 12px;
+  color: #795349;
+  cursor: pointer;
+}
+.notification-filters button[aria-pressed="true"] {
+  background: #fff7ed;
+  color: #431c16;
+  box-shadow: 0 2px 5px #431c1612;
+}
+.notification-entries {
+  display: grid;
+  gap: 10px;
+}
+.notification-entry {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid #431c1610;
+  border-radius: 16px;
+  background: #fffaf4;
+}
+.notification-entry.unread {
+  background: #fff0e5;
+  border-color: #f9736050;
+}
+.notification-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: #431c16;
+  cursor: pointer;
+  padding: 0;
+}
+.notification-content > span:last-child {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+  overflow-wrap: anywhere;
+}
+.notification-content small {
+  color: #795349;
+}
+.notification-content em {
+  font-size: 11px;
+  font-style: normal;
+  color: #a34d3b;
+}
+.notification-content .product-image {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+.notification-actions {
+  display: flex;
+  gap: 4px;
+}
+.notification-actions .icon-btn {
+  width: 34px;
+  height: 36px;
+}
+@media (max-width: 480px) {
+  .notification-entry {
+    align-items: flex-start;
+  }
+  .notification-actions {
+    flex-direction: column;
+  }
+}
